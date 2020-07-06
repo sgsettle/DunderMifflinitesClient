@@ -8,7 +8,9 @@ import {Form, FormGroup, Label} from 'reactstrap';
 
 type valueType = {
     userName: string,
+    setUserName: string,
     password: string,
+    setPassword: string
 };
 
 type acceptedProps = {
@@ -17,7 +19,13 @@ type acceptedProps = {
 
 class Login extends React.Component<acceptedProps, valueType> {
     constructor(props: acceptedProps){
-        super(props)
+        super(props);
+        this.state = {
+            userName: "",
+            setUserName: "",
+            password: "",
+            setPassword: ""
+        }
     }
     
     handleSubmit = (event: any) => {
@@ -34,7 +42,7 @@ class Login extends React.Component<acceptedProps, valueType> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            //this.props.updateToken(data.sessionToken);
+            this.props.updateToken(data.sessionToken);
         });
     };
 render() {

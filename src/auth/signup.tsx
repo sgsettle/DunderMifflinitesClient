@@ -10,7 +10,9 @@ type valueType = {
     firstName: string,
     lastName: string,
     userName: string,
-    password: string
+    setUserName: string,
+    password: string,
+    setPassword: string
 };
 
 type acceptedProps = {
@@ -19,15 +21,23 @@ type acceptedProps = {
 
 class Signup extends React.Component<acceptedProps, valueType> {
     constructor(props: acceptedProps){
-        super(props)
+        super(props);
+        this.state = {
+            firstName: "",
+            lastName: "",
+            userName: "",
+            setUserName: "",
+            password: "",
+            setPassword: ""
+        };
     }
     
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch('http://localhost:3000/user/signup', {
             method: 'POST',
             body: JSON.stringify({
-                firstNamer: this.state.firstName,
+                firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 userName: this.state.userName,
                 password: this.state.password
@@ -38,7 +48,8 @@ class Signup extends React.Component<acceptedProps, valueType> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            //this.props.updateToken(data.sessionToken);
+            this.props.updateToken(data.sessionToken);
+            //this.props.updateUserRole(date.user.userRole);
         });
     };
 render() {
@@ -56,7 +67,7 @@ render() {
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="username">Username</Label>
-                <Input onChange={(e) => this.setState({userName: e.target.value})} name="username" />
+                <Input onChange={(e) => this.setState({userName: e.target.value})} value={this.state.userName} name="username" />
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="password">Password</Label>
