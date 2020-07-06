@@ -34,7 +34,7 @@ class Login extends React.Component<acceptedProps, valueType> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken);
+            //this.props.updateToken(data.sessionToken);
         });
     };
 render() {

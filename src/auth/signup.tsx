@@ -7,15 +7,17 @@ import Button from '@material-ui/core/Button';
 import {Form, FormGroup, Label} from 'reactstrap';
 
 type valueType = {
+    firstName: string,
+    lastName: string,
     userName: string,
-    password: string,
+    password: string
 };
 
 type acceptedProps = {
     token: string
 };
 
-class Login extends React.Component<acceptedProps, valueType> {
+class Signup extends React.Component<acceptedProps, valueType> {
     constructor(props: acceptedProps){
         super(props)
     }
@@ -25,6 +27,8 @@ class Login extends React.Component<acceptedProps, valueType> {
         fetch('http://localhost:3000/user/login', {
             method: 'POST',
             body: JSON.stringify({
+                firstNamer: this.state.firstName,
+                lastName: this.state.lastName,
                 userName: this.state.userName,
                 password: this.state.password
             }),
@@ -34,17 +38,25 @@ class Login extends React.Component<acceptedProps, valueType> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken);
+            //this.props.updateToken(data.sessionToken);
         });
     };
 render() {
     return (
     <div>
-        <h1 style={{textAlign:'center'}}>Login</h1>
+        <h1 style={{textAlign:'center'}}>Signup</h1>
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
+                <Label htmlFor="firstname">First Name</Label>
+                <Input onChange={(e) => this.setState({firstName: e.target.value})} name="firstname" />
+            </FormGroup>
+            <FormGroup>
+                <Label htmlFor="lastname">Last Name</Label>
+                <Input onChange={(e) => this.setState({lastName: e.target.value})} name="lastname" />
+            </FormGroup>
+            <FormGroup>
                 <Label htmlFor="username">Username</Label>
-                <Input onChange={(e) => this.setState({userName: e.target.value})} name="username" />{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
+                <Input onChange={(e) => this.setState({userName: e.target.value})} name="username" />
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="password">Password</Label>
@@ -57,4 +69,4 @@ render() {
   }
 }
 
-export default Login;
+export default Signup;
