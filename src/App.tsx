@@ -19,6 +19,7 @@ class App extends React.Component<{}, valueTypes> {
   }
 //useEffect() from JS
  componentWillMount() {
+
   console.log('testing testing');
  }
  
