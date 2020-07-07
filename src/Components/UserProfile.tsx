@@ -12,7 +12,7 @@ class UserProfile extends React.Component {
 
     componentDidMount() {
         const userId = this.props.match.params.userId
-        fetch()
+        fetch('http://localhost:3000')
     }
 
     render() {

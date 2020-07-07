@@ -6,7 +6,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import {Form, FormGroup, Label} from 'reactstrap';
 
-type valueType = {
+type valueTypes = {
     userName: string,
     setUserName: string,
     password: string,
@@ -14,10 +14,10 @@ type valueType = {
 };
 
 type acceptedProps = {
-    token: string
+    updateToken: any
 };
 
-class Login extends React.Component<acceptedProps, valueType> {
+class Login extends React.Component<acceptedProps, valueTypes> {
     constructor(props: acceptedProps){
         super(props);
         this.state = {

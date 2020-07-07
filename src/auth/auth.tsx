@@ -8,8 +8,12 @@ import './auth.css';
 import Signup from './signup';
 import Login from './login';
 
+type acceptedProps = {
+    token: any,
+    updateUserName: any
+}
 
-class Auth extends React.Component {
+class Auth extends React.Component<acceptedProps> {
     constructor(props: any){
         super(props);
         this.state = {   
