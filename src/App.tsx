@@ -27,10 +27,7 @@ class App extends React.Component<{acceptedProps}, {valueType}> {
   console.log('test this');
  };
  componentDidMOunt() {
-
  }
-
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
   
@@ -39,7 +36,6 @@ function App() {
       setSessionToken(localStorage.getItem('token'));
     }
   }, [])
-
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
@@ -49,13 +45,10 @@ function App() {
     localStorage.clear();
     setSessionToken('');
   }
-
   const protectedViews = () => {
     return(sessionToken === localStorage.getItem('token') ? <FoodIndex token={sessionToken} /> 
     : <Auth updateToken={updateToken} />)
   }
-
-
   return (
     <div style={{backgroundColor:'#f5d1c4',
     backgroundImage:'url("https://www.transparenttextures.com/patterns/black-linen.png")'}}>
@@ -68,9 +61,6 @@ function App() {
 render() {
   return (
     <div className="App">
-      <h1>Develop Branch!!</h1>
-      <h2>Slayde's Branch</h2>
-      <h3>Brad's branch</h3>
       <Auth />
       {protectedViews()}
     </div>
