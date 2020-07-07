@@ -52,8 +52,8 @@ class App extends React.Component<{}, valueTypes> {
 
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      // <UserProfile
-      // token={this.state.setToken} /> 
+      //<UserProfile
+       //token={this.state.setToken} /> 
       ""
       ) : (
      <Auth
@@ -67,6 +67,7 @@ render() {
   return (
     <div className="App">
       {this.protectedViews()}
+      {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )
 }

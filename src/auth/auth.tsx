@@ -9,7 +9,7 @@ import Signup from './signup';
 import Login from './login';
 
 type acceptedProps = {
-    token: any,
+    token: any
     updateUserName: any
 }
 
