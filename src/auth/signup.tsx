@@ -80,7 +80,7 @@ render() {
                 <Label htmlFor="password">Password</Label>
                 <Input onChange={(e) => this.setState({password: e.target.value})} name="password" value={this.state.password} />
             </FormGroup>
-            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Login</Button>
+            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Signup</Button>
         </Form>
     </div>
     )

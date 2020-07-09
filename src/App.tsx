@@ -1,12 +1,20 @@
 import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
+import Button from '@material-ui/core/Button';
 import { render } from '@testing-library/react';
+import SiteBar from './home/NavBar';
+import { FormFeedback } from 'reactstrap';
 
 
 type valueTypes = {
   setUserName: string | any,
-  setToken: string | any
+  setToken: string | any,
+}
+type acceptedProps = {
+  updateToken: any,
+  updateUserName: any,
+  clearToken: any
 }
 
 class App extends React.Component<{}, valueTypes> {
@@ -17,9 +25,8 @@ class App extends React.Component<{}, valueTypes> {
       setToken: ""
     };
   }
-//useEffect() from JS
- componentWillMount() {
 
+ componentWillMount() {
   console.log('testing testing');
  }
  
@@ -55,6 +62,8 @@ class App extends React.Component<{}, valueTypes> {
     return this.state.setToken === localStorage.getItem("token") ? (
       //<UserProfile
        //token={this.state.setToken} /> 
+      // <Feed 
+      //   token={this.state.setToken} />
       ""
       ) : (
      <Auth
@@ -67,6 +76,7 @@ class App extends React.Component<{}, valueTypes> {
 render() {
   return (
     <div className="App">
+      <SiteBar clearToken={this.clearToken}/> 
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
     </div>
