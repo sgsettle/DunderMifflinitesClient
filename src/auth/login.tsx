@@ -2,9 +2,9 @@ import * as React from 'react';
 //import Form from '@material-ui/core/Form';
 //import FormGroup from '@material-ui/core/FormGroup';
 //import Label from '@material-ui/core/Label';
-import Input from '@material-ui/core/Input';
+//import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {Form, FormGroup, Label} from 'reactstrap';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 type valueTypes = {
     userName: string,

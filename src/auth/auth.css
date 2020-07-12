@@ -1,3 +1,15 @@
 h1 {
     text-align: center;
 }
+.signin-col {
+    padding:20px 20px 20px 20px;
+    border:1px solid black;
+    margin-top:50px;
+    margin-bottom:100px
+}
+.login-col {
+    padding:20px 20px 20px 20px;
+    border:1px solid black;
+    margin-top:50px;
+    margin-bottom:100px
+}

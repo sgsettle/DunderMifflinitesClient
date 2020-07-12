@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { render } from '@testing-library/react';
 import SiteBar from './home/NavBar';
 import { FormFeedback } from 'reactstrap';
+import './App.css';
 
 
 type valueTypes = {

@@ -8,6 +8,9 @@ import {
     NavItem, 
     Button
 } from 'reactstrap';
+import logoPic from "../../src/Assets/theofficelogo.png";
+
+
 
 type valueTypes = {
     token: any,
@@ -51,13 +54,14 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 >
                     Logout
                 </Button>
+                
         )
     }
 
     render() {
     return (
         <Navbar id="Navbar" light expand="md">
-            <NavbarBrand href="/">Dunder Mifflinites</NavbarBrand>
+            <NavbarBrand id="NavbarBrand" href="/">DM HOME</NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         {this.logoutBtn()}

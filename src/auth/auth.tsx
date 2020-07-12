@@ -7,6 +7,8 @@ import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
 import Login from './login';
+import LiteCoin from '../home/Brad';
+import logoPic from "../../src/Assets/theofficelogo.png";
 
 type acceptedProps = {
     token: any
@@ -23,7 +25,8 @@ class Auth extends React.Component<acceptedProps> {
     render(){
         return(
             <Container className="auth-container">
-            <h1 id="welcomeHeading">Dunder Mifflinites</h1>
+            <img id="dmlogo" src={logoPic} alt="logo" />
+            <h1 id="welcomeHeading"></h1>
             <div id="imageslogo">
             </div>
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
@@ -38,6 +41,9 @@ class Auth extends React.Component<acceptedProps> {
             <Login updateToken={this.props.token} />
                 </Col>
             </Row>
+            <footer>
+                <LiteCoin />
+            </footer>
             
         </Container>
         
