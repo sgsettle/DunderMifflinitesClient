@@ -3,7 +3,7 @@ import './App.css';
 import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import { render } from '@testing-library/react';
-import SiteBar from './home/NavBar';
+import SiteBar from './Components/Navbar/NavBar';
 import { FormFeedback } from 'reactstrap';
 import './App.css';
 
