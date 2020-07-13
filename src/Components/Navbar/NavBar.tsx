@@ -6,8 +6,9 @@ import {
     NavItem, 
     Button
 } from 'reactstrap';
-import logoPic from "../../src/Assets/theofficelogo.png";
-import {Route, Link, Switch } from 'react-router-dom';
+import logoPic from "../../Assets/theofficelogo.png";
+//import {Route, Link, Switch } from 'react-router-dom';
+//import Auth from '../../auth/auth';
 import App from '../../App';
 
 
@@ -58,7 +59,9 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
     render() {
     return (
         <Navbar id="Navbar" light expand="md">
-            <NavbarBrand id="NavbarBrand">>DM HOME</NavbarBrand>
+            <NavbarBrand id="NavbarBrand" href="/">
+                <img id="brandlogohome"src={logoPic}></img>
+            </NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         {this.logoutBtn()}

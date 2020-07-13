@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Button } from 'antd';
+import './Brad.css';
 
 type acceptedProps = {
 };
@@ -68,9 +69,11 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
             onOk={this.componentDidMount}
             onCancel={this.handleCancel}
             >
+              <div id="coinModal">
             <p>Base: {this.state.base}</p>
             <p>Target: {this.state.target}</p>
             <p>Price: {this.state.price}</p>
+            </div>
         </Modal>
       </div>
 

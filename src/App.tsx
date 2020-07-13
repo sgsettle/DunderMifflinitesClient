@@ -4,8 +4,8 @@ import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import { render } from '@testing-library/react';
 import SiteBar from './Components/Navbar/NavBar';
-import { FormFeedback } from 'reactstrap';
 import './App.css';
+//import {BrowserRouter as Router} from 'react-router-dom';
 
 
 
@@ -66,7 +66,7 @@ class App extends React.Component<{}, valueTypes> {
        //token={this.state.setToken} /> 
       // <Feed 
       //   token={this.state.setToken} />
-      ""
+      "hit logout to go back to sign up or login...this is a placeholder text until linked with profile or feed"
       ) : (
      <Auth
       token={this.updateToken}

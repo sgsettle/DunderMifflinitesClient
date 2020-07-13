@@ -52,7 +52,9 @@ class Auth extends React.Component<acceptedProps, typeState> {
                 <Login updateToken={this.props.token}/> :
                 <Signup updateToken={this.props.token}/>
                 }
-                <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>{this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}</Button>
+                <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>
+                    {this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}
+                    </Button>
             </div>
             {/* <Row>
                 <Col md="5" className="signin-col">
@@ -66,9 +68,9 @@ class Auth extends React.Component<acceptedProps, typeState> {
                 </Col>
             </Row> */}
 
-            <footer>
+            {/* <footer>
                 <LiteCoin />
-            </footer>
+            </footer> */}
             </Container>
         )   
     }
