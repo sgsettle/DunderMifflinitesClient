@@ -69,6 +69,7 @@ updateUsername = (newUsername: string) => {
      <Auth
       token={this.updateToken}
       updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
       />
      )
   };
