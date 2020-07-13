@@ -22,6 +22,7 @@ class App extends React.Component<{}, valueTypes> {
   }
 //useEffect() from JS
  componentWillMount() {
+
   console.log('testing testing');
  }
  
@@ -69,6 +70,7 @@ render() {
   return (
     <div className="App">
       {this.protectedViews()}
+
     </div>
   )
 
