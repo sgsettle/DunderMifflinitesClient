@@ -4,6 +4,7 @@ import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { render } from '@testing-library/react';
+import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
 //import {BrowserRouter as Router} from 'react-router-dom';
