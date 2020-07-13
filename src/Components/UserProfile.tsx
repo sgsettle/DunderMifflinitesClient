@@ -1,27 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
-class UserProfile extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            user: "",
-            redirectToSignin: false
-        }
-    }
+// class UserProfile extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             user: "",
+//             redirectToSignin: false
+//         }
+//     }
 
-    componentDidMount() {
-        const userId = this.props.match.params.userId
-        fetch('http://localhost:3000')
-    }
+//     componentDidMount() {
+//         const userId = this.props.match.params.userId
+//         fetch('http://localhost:3000')
+//     }
 
-    render() {
-        return (
-            <div>
+//     render() {
+//         return (
+//             <div>
 
-            </div>
-        )
-    }
-}
+//             </div>
+//         )
+//     }
+// }
 
-export default UserProfile;
+// export default UserProfile;

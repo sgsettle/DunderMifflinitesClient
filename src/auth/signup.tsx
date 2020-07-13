@@ -2,7 +2,6 @@ import * as React from 'react';
 //import Form from '@material-ui/core/Form';
 //import FormGroup from '@material-ui/core/FormGroup';
 //import Label from '@material-ui/core/Label';
-// import {Input} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 
@@ -59,7 +58,7 @@ class Signup extends React.Component<acceptedProps, valueTypes> {
 render() {
     return (
     <div>
-        <h1 style={{textAlign:'center'}}>Signup</h1>
+        <h1 style={{textAlign:'center'}}>Sign Up to Join the Fun</h1>
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
                 <Label htmlFor="firstname">First Name</Label>
@@ -95,7 +94,7 @@ render() {
                 pattern='[a-zA-Z0-9]+'
                 title='Password must contain one number and be 5-15 characters in length.'/>
             </FormGroup>
-            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Login</Button>
+            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Signup</Button>
         </Form>
     </div>
     )

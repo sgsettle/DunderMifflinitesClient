@@ -1,15 +1,23 @@
 import React from 'react';
 import './App.css';
-
 import Auth from './auth/auth';
+import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
-
 import { render } from '@testing-library/react';
+import SiteBar from './Components/Navbar/NavBar';
+import './App.css';
+//import {BrowserRouter as Router} from 'react-router-dom';
+
 
 
 type valueTypes = {
   setUserName: string | any,
-  setToken: string | any
+  setToken: string | any,
+}
+type acceptedProps = {
+  updateToken: any,
+  updateUserName: any,
+  clearToken: any
 }
 
 class App extends React.Component<{}, valueTypes> {
@@ -20,9 +28,8 @@ class App extends React.Component<{}, valueTypes> {
       setToken: ""
     };
   }
-//useEffect() from JS
- componentWillMount() {
 
+ componentWillMount() {
   console.log('testing testing');
  }
  
@@ -69,8 +76,9 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
+      <SiteBar clearToken={this.clearToken}/> 
       {this.protectedViews()}
-
+      {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )
 

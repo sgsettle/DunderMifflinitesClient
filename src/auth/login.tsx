@@ -1,10 +1,12 @@
 import * as React from 'react';
-//import Form from '@material-ui/core/Form';
-//import FormGroup from '@material-ui/core/FormGroup';
-//import Label from '@material-ui/core/Label';
+//import Form from '@material-ui/core/';
+import FormGroup from '@material-ui/core/FormGroup';
+//import Label from '@material-ui/core';
 //import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {Form, FormGroup, Label, Input} from 'reactstrap';
+import {Form, FormGroup, Input, Label} from 'reactstrap';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper'
 
 type valueTypes = {
     userName: string,
