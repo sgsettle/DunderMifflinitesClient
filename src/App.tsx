@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
 import { render } from '@testing-library/react';
+import UserProfile from './Components/UserProfile/ProfileIndex'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 type valueTypes = {
@@ -53,9 +55,8 @@ class App extends React.Component<{}, valueTypes> {
 
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      // <UserProfile
-      // token={this.state.setToken} /> 
-      ""
+      <UserProfile
+      token={this.state.setToken} /> 
       ) : (
      <Auth
       token={this.updateToken}
