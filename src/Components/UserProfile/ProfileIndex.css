@@ -1,4 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/4db9755ca4ef2df7fc9cbce2d0c7f3ea?family=ITC+American+Typewriter);
+/* @import url(//db.onlinewebfonts.com/c/4db9755ca4ef2df7fc9cbce2d0c7f3ea?family=ITC+American+Typewriter); */
 
 body {
     background-color: #fff;
@@ -8,8 +8,8 @@ body {
 
 @font-face {
     font-family: "ITC American Typewriter"; 
-    src: url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.eot"); 
-    src: url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.woff") format("woff"), url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/4db9755ca4ef2df7fc9cbce2d0c7f3ea.svg#ITC American Typewriter") format("svg"); }
+    src: url('../../Assets/ITC-American-Typewriter-Medium.otf'); 
+}
 
 .mainProfileDiv {
     margin-top: 120px;
@@ -18,8 +18,19 @@ body {
     float: left;
 }
 
-.userInfo {
+.nameDiv {
     background-color: rgba(255, 255, 255, 0.5);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    margin-bottom: 5px;
+}
+
+.aboutInfo {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: black solid 2px;
+
 }
 
 h3 {

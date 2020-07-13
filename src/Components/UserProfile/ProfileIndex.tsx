@@ -101,20 +101,20 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
                         <h3>Dunder Mifflin. This is </h3>
                         <h1>{profile.firstName} {profile.lastName}</h1>
                     </div>
-                    <Container>
+                    <Container className='aboutInfo'>
                     <div className="editIconDiv">
                     <EditIcon onClick={()=> {
                     this.editUpdateProfile(profile)
                     this.updateOn()
                     }}/>
                     </div>
-                        <h3>Username</h3>
+                        <h3 id="infoTag">Username</h3>
                             <p>{profile.userName}</p>
-                        <h3>About Me</h3>
+                        <h3 id="infoTag">About Me</h3>
                             <p>{profile.aboutMe}</p>
-                        <h3>Favorite Character</h3>
+                        <h3 id="infoTag">Favorite Character</h3>
                             <p>{profile.favCharacter}</p>
-                        <h3>Favorite Episode</h3>
+                        <h3 id="infoTag">Favorite Episode</h3>
                             <p>{profile.favEpisode}</p>
                     </Container>
                   </div>

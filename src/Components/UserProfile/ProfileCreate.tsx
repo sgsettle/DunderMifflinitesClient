@@ -13,7 +13,7 @@ type ValueTypes = {
     lastName: string,
     userName: string,
     aboutMe: string,
-    // userPhoto: Blob,
+    userPhoto: string,
     favCharacter: string,
     favEpisode: string,
     open: boolean
@@ -27,7 +27,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
             lastName: "",
             userName: "",
             aboutMe: "",
-            // userPhoto: Blob,
+            userPhoto: "",
             favCharacter: "",
             favEpisode: "",
             open: false
