@@ -1,3 +1,4 @@
+@import "~antd/dist/antd.css";
 .App {
   text-align: center;
 }
@@ -35,4 +36,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#Navbar {
+  background-color: rgb(6, 45, 123);
+  height: 75px;
+  color: white
+}
+#NavbarBrand {
+  float: left;
+}
+#dmlogo {
+  margin-top: 20px
+}
+#brandlogohome {
+  width: 75px;
+  height: 75px
 }
