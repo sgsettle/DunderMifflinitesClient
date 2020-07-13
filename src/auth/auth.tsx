@@ -58,13 +58,13 @@ class Auth extends React.Component<acceptedProps, typeState> {
             </div>
             {/* <Row>
                 <Col md="5" className="signin-col">
-            <Signup updateToken={this.props.token}/>
+            <Signup updateToken={this.props.token} setUsername={this.props.updateUserName}/>
                 </Col>
                 <Col md="2">
 
                 </Col>
                 <Col md="5" className="login-col">
-            <Login updateToken={this.props.token} />
+            <Login updateToken={this.props.token} setUsername={this.props.updateUserName}/>
                 </Col>
             </Row> */}
 

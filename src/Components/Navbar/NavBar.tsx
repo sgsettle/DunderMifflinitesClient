@@ -10,6 +10,7 @@ import logoPic from "../../Assets/theofficelogo.png";
 //import {Route, Link, Switch } from 'react-router-dom';
 //import Auth from '../../auth/auth';
 import App from '../../App';
+import './NavBar.css';
 
 
 
@@ -70,4 +71,4 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         </Navbar>
     )
     }
-}
+
