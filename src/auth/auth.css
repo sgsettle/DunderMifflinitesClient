@@ -16,7 +16,7 @@ h1 {
 #auth-container {
     background-image: url('../Assets/michaelscott.jpg');
     max-width: 100%;
-    height: auto;
+    height: 800px;
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -26,4 +26,9 @@ h1 {
 }
 h3 {
     width: 50%
+}
+.signuplogin {
+    width: 40%;
+    border: 2px solid black;
+    background-color: lightgray
 }

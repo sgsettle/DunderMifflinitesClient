@@ -8,7 +8,6 @@ import {
 } from 'reactstrap';
 import logoPic from "../../src/Assets/theofficelogo.png";
 import {Route, Link, Switch } from 'react-router-dom';
-import Auth from '../../auth/auth';
 import App from '../../App';
 
 
@@ -45,11 +44,11 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 color="inherit"
                 id="navLog"
                 style={{ marginLeft: "90vw"}}
-                >
-                    <Link to="/">Logout</Link>
+                >Logout
+                    {/* <Link to="/">Logout</Link>
                     <Switch>
                          <Route exact path="/"><App/></Route>
-                    </Switch>
+                    </Switch> */}
             </Button>
 
                 
