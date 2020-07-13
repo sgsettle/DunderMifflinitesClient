@@ -1,0 +1,26 @@
+#footerDiv{
+    background-attachment: fixed;
+    background-color: rgb(6, 45, 123);
+    font-family:'American Typewriter Medium';
+    color: white;
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding-top: 5px;
+    padding-left: 25%;
+}
+
+.footerP{
+   margin-bottom: -1px;
+}
+
+.linkName{
+    text-decoration: none;
+    color: white;
+}
+
+.linkedInSymbol{
+    margin-bottom: -4px;
+}

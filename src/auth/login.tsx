@@ -2,9 +2,9 @@ import * as React from 'react';
 //import Form from '@material-ui/core/Form';
 //import FormGroup from '@material-ui/core/FormGroup';
 //import Label from '@material-ui/core/Label';
-import Input from '@material-ui/core/Input';
+//import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {Form, FormGroup, Label} from 'reactstrap';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 type valueTypes = {
     userName: string,
@@ -15,6 +15,7 @@ type valueTypes = {
 
 type acceptedProps = {
     updateToken: any
+    setUsername: any
 };
 
 class Login extends React.Component<acceptedProps, valueTypes> {
@@ -43,6 +44,7 @@ class Login extends React.Component<acceptedProps, valueTypes> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
+            this.props.setUsername(data.user.userName)
         });
     };
 render() {
@@ -52,11 +54,13 @@ render() {
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
                 <Label htmlFor="username">Username</Label>
-                <Input onChange={(e) => this.setState({userName: e.target.value})} name="username" />{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
+                <Input onChange={(e) => this.setState({userName: e.target.value})} 
+                name="username" type='text'/>{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="password">Password</Label>
-                <Input onChange={(e) => this.setState({password: e.target.value})} name="password" />
+                <Input onChange={(e) => this.setState({password: e.target.value})} 
+                name="password" type='password'/>
             </FormGroup>
             <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Login</Button>
         </Form>

@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
+
 import Auth from './auth/auth';
+import FeedIndex from './Components/Feed/FeedIndex';
+
 import { render } from '@testing-library/react';
 
 
@@ -24,9 +27,9 @@ class App extends React.Component<{}, valueTypes> {
  }
  
  componentDidMount() {
-  if (localStorage.getItem("userName")) {
-    this.setState({setUserName: localStorage.getItem("userName")})
-   }
+  if (localStorage.getItem("username")) {
+    this.setState({ setUserName: localStorage.getItem("username") });
+  }
   if (localStorage.getItem("token")) {
     this.setState({setToken: localStorage.getItem("token")});
   }
@@ -38,11 +41,11 @@ class App extends React.Component<{}, valueTypes> {
   console.log(newToken);
 };
 
-  updateUserName = (newUserName: string) => {
-    localStorage.setItem('userName', newUserName);
-    this.setState({setUserName: newUserName});
-    console.log(newUserName);
-  };
+updateUsername = (newUsername: string) => {
+  localStorage.setItem("username", newUsername);
+  this.setState({ setUserName: newUsername });
+  console.log(newUsername);
+};
 
   clearToken = () => {
     localStorage.clear();
@@ -53,13 +56,12 @@ class App extends React.Component<{}, valueTypes> {
 
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      // <UserProfile
-      // token={this.state.setToken} /> 
-      ""
+      <FeedIndex
+      token={this.state.setToken} setUsername={this.updateUsername}/> 
       ) : (
      <Auth
       token={this.updateToken}
-      updateUserName={this.updateUserName}
+      updateUserName={this.updateUsername}
       />
      )
   };
@@ -71,7 +73,8 @@ render() {
 
     </div>
   )
-}
+
+  }
 };
 
 export default App;
