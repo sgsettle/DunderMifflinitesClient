@@ -1,6 +1,6 @@
 import * as React from 'react';
 //import Form from '@material-ui/core/';
-import FormGroup from '@material-ui/core/FormGroup';
+//import FormGroup from '@material-ui/core/FormGroup';
 //import Label from '@material-ui/core';
 //import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
@@ -17,7 +17,6 @@ type valueTypes = {
 
 type acceptedProps = {
     updateToken: any
-    setUsername: any
 };
 
 class Login extends React.Component<acceptedProps, valueTypes> {
@@ -46,7 +45,6 @@ class Login extends React.Component<acceptedProps, valueTypes> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
-            this.props.setUsername(data.user.userName)
         });
     };
 render() {

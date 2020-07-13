@@ -71,4 +71,4 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         </Navbar>
     )
     }
-
+}

@@ -14,11 +14,6 @@ type valueTypes = {
   setUserName: string | any,
   setToken: string | any,
 }
-type acceptedProps = {
-  updateToken: any,
-  updateUserName: any,
-  clearToken: any
-}
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
@@ -64,7 +59,7 @@ updateUsername = (newUsername: string) => {
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <FeedIndex
-      token={this.state.setToken} setUsername={this.updateUsername}/> 
+      token={this.state.setToken} setUserName={this.updateUsername}/> 
       ) : (
      <Auth
       token={this.updateToken}

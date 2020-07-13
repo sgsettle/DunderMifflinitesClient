@@ -6,11 +6,11 @@ import Footer from '../Footer/Footer';
 
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
+//import IconButton from '@material-ui/core/IconButton';
+//import DeleteOutlineTwoToneIcon from '@material-ui/icons/';
 
 type acceptedProps = {
-    setUsername: string | any;
+    setUserName: string | any;
     // setImage: string | any;
     // setText: string | any;
     // setLink: string | any;
@@ -110,7 +110,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     render() {
         return(
             <div id='feedDiv'>
-                <Navbar />
+                <Navbar clearToken={this.props.token}/>
                 <CreatePost setUsername={this.state.username} setImage={this.state.image} setText={this.state.text} setLink={this.state.link} fetchUsers={this.fetchFeeds} token={this.props.token} />
                 <Container id='feedContainer'>
                     {this.feedMapper()}
