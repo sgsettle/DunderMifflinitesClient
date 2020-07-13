@@ -12,8 +12,9 @@ import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 
 type acceptedProps = {
-    token: any
-    updateUserName: any
+    token: any;
+    updateUserName: any;
+    setUsername: any;
 }
 
 type typeState ={
@@ -49,8 +50,8 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
             <div className="signuplogin">
                 {this.state.showLogin ? 
-                <Login updateToken={this.props.token}/> :
-                <Signup updateToken={this.props.token}/>
+                <Login updateToken={this.props.token} setUserName={this.props.setUsername}/> :
+                <Signup updateToken={this.props.token} setUsername={this.props.setUsername}/>
                 }
                 <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>
                     {this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}

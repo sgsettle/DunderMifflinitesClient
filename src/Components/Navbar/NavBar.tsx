@@ -59,16 +59,16 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
 
     render() {
     return (
-        <Navbar id="Navbar" light expand="md">
+        <Navbar id="Navbar" light expand="md" >
             <NavbarBrand id="NavbarBrand" href="/">
                 <img id="brandlogohome"src={logoPic}></img>
             </NavbarBrand>
                 <Nav className="ml-auto" navbar>
-                    <NavItem>
+                    <NavItem >
                         {this.logoutBtn()}
                     </NavItem>
                 </Nav>
         </Navbar>
     )
     }
-
+}
