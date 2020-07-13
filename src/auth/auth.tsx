@@ -24,11 +24,8 @@ class Auth extends React.Component<acceptedProps> {
 
     render(){
         return(
-            <Container className="auth-container">
+            <Container id="auth-container">
             <img id="dmlogo" src={logoPic} alt="logo" />
-            <h1 id="welcomeHeading"></h1>
-            <div id="imageslogo">
-            </div>
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
             <Row>
                 <Col md="5" className="signin-col">
@@ -41,12 +38,11 @@ class Auth extends React.Component<acceptedProps> {
             <Login updateToken={this.props.token} />
                 </Col>
             </Row>
+
             <footer>
                 <LiteCoin />
             </footer>
-            
-        </Container>
-        
+            </Container>
         )   
     }
 }

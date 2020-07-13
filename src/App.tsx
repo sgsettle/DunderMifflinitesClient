@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 import SiteBar from './Components/Navbar/NavBar';
 import { FormFeedback } from 'reactstrap';
 import './App.css';
-
+import {BrowserRouter as Router} from 'react-router-dom';
 
 type valueTypes = {
   setUserName: string | any,
@@ -77,9 +77,11 @@ class App extends React.Component<{}, valueTypes> {
 render() {
   return (
     <div className="App">
+      <Router>
       <SiteBar clearToken={this.clearToken}/> 
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
+      </Router>
     </div>
   )
 }

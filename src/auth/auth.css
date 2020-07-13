@@ -13,3 +13,17 @@ h1 {
     margin-top:50px;
     margin-bottom:100px
 }
+#auth-container {
+    background-image: url('../Assets/michaelscott.jpg');
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+#dmlogo {
+    margin-right: 90vw
+}
+h3 {
+    width: 50%
+}

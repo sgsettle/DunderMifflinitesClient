@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     Navbar, 
     NavbarBrand,
-    NavbarToggler,
-    Collapse,
     Nav,
     NavItem, 
     Button
 } from 'reactstrap';
 import logoPic from "../../src/Assets/theofficelogo.png";
+import {Route, Link, Switch } from 'react-router-dom';
+import Auth from '../../auth/auth';
+import App from '../../App';
 
 
 
@@ -34,13 +35,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
-    // clearToken = () => {
-    //     localStorage.clear();
-    //     this.setState({setToken: ""});
-    //     this.setState({setUserName: ""});
-    //     sessionStorage.clear();
-    //   };
-
     logoutBtn() {
         return localStorage.getItem("token") === null ?
         (
@@ -52,8 +46,12 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 id="navLog"
                 style={{ marginLeft: "90vw"}}
                 >
-                    Logout
-                </Button>
+                    <Link to="/">Logout</Link>
+                    <Switch>
+                         <Route exact path="/"><App/></Route>
+                    </Switch>
+            </Button>
+
                 
         )
     }
@@ -61,7 +59,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
     render() {
     return (
         <Navbar id="Navbar" light expand="md">
-            <NavbarBrand id="NavbarBrand" href="/">DM HOME</NavbarBrand>
+            <NavbarBrand id="NavbarBrand">>DM HOME</NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         {this.logoutBtn()}
