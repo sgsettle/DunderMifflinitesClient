@@ -16,7 +16,7 @@ h1 {
 #auth-container {
     background-image: url('../Assets/michaelscott.jpg');
     max-width: 140%;
-    height: 900px;
+    height: 1000px;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
@@ -36,9 +36,10 @@ h3 {
     margin-top: 5px;
 }
 #signuplogin {
-    width: 33%;
+    width: 30%;
     margin-left: 120px;
-    margin-top: 50px;
+    margin-top: 30px;
+
     border: 2px solid black;
     border-radius: 5px;
     background-image: url('../Assets/paper.jpg');

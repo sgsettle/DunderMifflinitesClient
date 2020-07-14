@@ -9,6 +9,7 @@ import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
 import AdminIndex from './Components/Admin/Admin';
 import { stat } from 'fs';
+import Footer from './Components/Footer/Footer';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
 type valueTypes = {
@@ -79,9 +80,9 @@ render() {
       <SiteBar clearToken={this.clearToken}/>
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
+      <Footer />
     </div>
   )
-
   }
 };
 
