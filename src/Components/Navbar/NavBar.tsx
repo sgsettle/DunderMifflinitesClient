@@ -1,15 +1,15 @@
 import React from 'react';
+//import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Litecoin from './Brad';
+
 import {
     Navbar, 
     NavbarBrand,
-    Nav,
-    NavItem, 
-    Button
+    Nav
 } from 'reactstrap';
+import { Button, Tooltip } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
-//import {Route, Link, Switch } from 'react-router-dom';
-//import Auth from '../../auth/auth';
-import App from '../../App';
+
 import './NavBar.css';
 
 
@@ -36,16 +36,30 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
+    // viewFeed = () => {
+    //     <Link to='/feed'/>
+    // } 
+
+    // viewProfile = () => {
+
+    // }
+  
+    // viewAdmin = () => {
+
+    // }
+
     logoutBtn() {
         return localStorage.getItem("token") === null ?
         (
             ""
         ) : (
             <Button
+                className='eachButton'
                 onClick={this.props.clearToken}
-                color="inherit"
                 id="navLog"
-                style={{ marginLeft: "90vw"}}
+                // style={{ marginLeft: "90vw"}}
+                
+                size='large'
                 >Logout
                     {/* <Link to="/">Logout</Link>
                     <Switch>
@@ -59,16 +73,32 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
 
     render() {
     return (
-        <Navbar id="Navbar" light expand="md" >
-            <NavbarBrand id="NavbarBrand" href="/">
-                <img id="brandlogohome"src={logoPic}></img>
-            </NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                    <NavItem >
-                        {this.logoutBtn()}
-                    </NavItem>
-                </Nav>
-        </Navbar>
+        
+            <Navbar id="Navbar" light expand="md" >
+                <NavbarBrand id="NavbarBrand" href="/">
+                    
+                    <img id="brandlogohome" src={logoPic}/>
+                    
+                </NavbarBrand>
+                    <Nav id='navButtons' navbar>
+                            <Button className='eachButton' size='large'>
+                                Profile
+                            </Button>
+                            <Tooltip title='Bored?'>
+                                <Button className='eachButton' shape="circle" size="large">
+                                B
+                                </Button>
+                            </Tooltip>
+                            <Tooltip title='Jeopardy'>
+                                <Button className='eachButton' shape="circle" size='large'>
+                                J
+                                </Button>
+                            </Tooltip>
+                                <Litecoin />
+                            {this.logoutBtn()}
+                    </Nav>
+            </Navbar>
+        
     )
     }
 }

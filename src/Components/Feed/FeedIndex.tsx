@@ -1,7 +1,6 @@
 import React from 'react';
 import './Feed.css';
 import CreatePost from './CreatePost';
-import Navbar from '../Navbar/NavBar';
 import Footer from '../Footer/Footer';
 
 import { Container } from 'reactstrap';
@@ -110,7 +109,6 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     render() {
         return(
             <div id='feedDiv'>
-                <Navbar clearToken={this.props.token}/>
                 <CreatePost setUsername={this.state.username} setImage={this.state.image} setText={this.state.text} setLink={this.state.link} fetchUsers={this.fetchFeeds} token={this.props.token} />
                 <Container id='feedContainer'>
                     {this.feedMapper()}
