@@ -8,8 +8,6 @@ import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
-
-
 type valueTypes = {
   setUserName: string | any,
   setToken: string | any,
@@ -64,6 +62,7 @@ updateUsername = (newUsername: string) => {
      <Auth
       token={this.updateToken}
       updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
       />
      )
   };
@@ -71,7 +70,7 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
-      <SiteBar clearToken={this.clearToken}/> 
+      <SiteBar clearToken={this.clearToken}/>
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
     </div>

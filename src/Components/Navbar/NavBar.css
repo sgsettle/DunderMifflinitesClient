@@ -1,0 +1,30 @@
+#Navbar {
+  background-color: rgb(6, 45, 123);
+  height: 75px;
+  color: white;
+}
+​
+#NavbarBrand {
+  float: left;
+}
+​
+#brandlogohome {
+  float: left;
+  margin-left: 1%;
+  background-color: white;
+  margin-top: .75%;
+  width: 20%;
+  height: 85%;
+}
+​
+#navButtons{
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+  float: right;
+  margin-right: 3%;
+}
+​
+.eachButton{
+  margin-left: 3%;
+}

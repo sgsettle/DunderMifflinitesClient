@@ -12,9 +12,9 @@ import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 
 type acceptedProps = {
-    token: any
-    updateUserName: any
-
+    token: any;
+    updateUserName: any;
+    setUsername: any;
 }
 
 type typeState ={
@@ -50,7 +50,7 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
             <div className="signuplogin">
                 {this.state.showLogin ? 
-                <Login updateToken={this.props.token} /> :
+                <Login updateToken={this.props.token} setUserName={this.props.updateUserName}/> :
                 <Signup updateToken={this.props.token} setUserName={this.props.updateUserName}/>
                 }
                 <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>
@@ -71,8 +71,8 @@ class Auth extends React.Component<acceptedProps, typeState> {
 
             {/* <footer>
                 <LiteCoin />
-            </footer> */}
-            </Container>
+            </footer>*/}
+            </Container> 
         )   
     }
 }

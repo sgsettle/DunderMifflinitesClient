@@ -75,7 +75,7 @@ render() {
                 value={this.state.userName} 
                 name="username" type='text' 
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
-                title='Username must include one number and be 4-15 characters in length.'
+                title='Username must include one number, one capital letter, and be 4-15 characters in length.'
               />
             </FormGroup>
             <FormGroup>
@@ -92,7 +92,7 @@ render() {
                 value={this.state.password} 
                 type='password'
                 pattern='[a-zA-Z0-9]+'
-                title='Password must contain one number and be 5-15 characters in length.'/>
+                title='Password must contain one number, one capital letter, and be 5-15 characters in length.'/>
             </FormGroup>
             <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Signup</Button>
         </Form>

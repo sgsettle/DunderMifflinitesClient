@@ -38,14 +38,6 @@
   }
 }
 
-#Navbar {
-  background-color: rgb(6, 45, 123);
-  height: 75px;
-  color: white
-}
-#NavbarBrand {
-  float: left;
-}
 #dmlogo {
   margin-top: 20px
 }

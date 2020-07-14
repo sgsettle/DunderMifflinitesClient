@@ -17,6 +17,7 @@ type valueTypes = {
 
 type acceptedProps = {
     updateToken: any
+    setUserName: any
 };
 
 class Login extends React.Component<acceptedProps, valueTypes> {
@@ -45,6 +46,7 @@ class Login extends React.Component<acceptedProps, valueTypes> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
+            this.props.setUserName(data.user.userName)
         });
     };
 render() {
@@ -55,7 +57,7 @@ render() {
             <FormGroup>
                 <Label htmlFor="username">Username</Label>
                 <Input onChange={(e) => this.setState({userName: e.target.value})} 
-                name="username" type='text'/>{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
+                name="username" type='text'/>
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="password">Password</Label>

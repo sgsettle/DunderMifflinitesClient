@@ -55,24 +55,24 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     }
 
 
-    fetchFeeds = () => {
-        console.log('Fetching a post by ' + this.state.username);
-        fetch('http://localhost:3000/feed', {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: this.props.token
-            }
-        })
-        .then((response) => response.json())
-        .then((userData)=> {
-            console.log("feed data ", userData);
-            this.setState({
-                dataTable: userData.feed
-            })
-            console.log("FEEDS", this.state.dataTable)
-        })
-    }
+    // fetchFeeds = () => {
+    //     console.log('Fetching a post by ' + this.state.username);
+    //     fetch('http://localhost:3000/feed', {
+    //         method: 'GET',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Authorization: this.props.token
+    //         }
+    //     })
+    //     .then((response) => response.json())
+    //     .then((userData)=> {
+    //         console.log("feed data ", userData);
+    //         this.setState({
+    //             dataTable: userData.feed
+    //         })
+    //         console.log("FEEDS", this.state.dataTable)
+    //     })
+    // }
 
     // deleteFeed = ( feed: any) => {
     //     fetch(`http://localhost:3000/feed/${feed.id}`, {
@@ -103,7 +103,6 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     }
 
     componentDidMount(){
-        this.fetchFeeds();
         this.fetchUsers(this.state.dataTable);
     }
 
