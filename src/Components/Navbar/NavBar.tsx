@@ -6,11 +6,18 @@ import {
     NavItem, 
     Button
 } from 'reactstrap';
+import {
+    Route,
+    Link,
+    Switch
+} from 'react-router-dom';
 import logoPic from "../../Assets/theofficelogo.png";
 //import {Route, Link, Switch } from 'react-router-dom';
 //import Auth from '../../auth/auth';
 import App from '../../App';
 import './NavBar.css';
+import ProfileIndex from '../UserProfile/ProfileIndex';
+import FeedIndex from '../Feed/FeedIndex';
 
 
 
@@ -34,6 +41,25 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             userName: "",
             setUserName: ""
         };
+    }
+
+    navBar = () => {
+        return (
+            <div>
+                <div>
+                    <ul>
+                        <li><Link to="/profile">Profile</Link></li>
+                        {/* <li><Link to="/feedindex">Feed</Link></li> */}
+                    </ul>
+                </div>
+                <div>
+                    <Switch>
+                        <Route exact path="/profile"><ProfileIndex token={this.state.token} /></Route>
+                        {/* <Route exact path="/feedindex"><FeedIndex token={this.state.token} /></Route> */}
+                    </Switch>
+                </div>
+            </div>
+        )
     }
 
     logoutBtn() {
@@ -64,7 +90,10 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 <img id="brandlogohome"src={logoPic}></img>
             </NavbarBrand>
                 <Nav className="ml-auto" navbar>
-                    <NavItem >
+                    <NavItem>
+                        {this.navBar()}
+                    </NavItem>
+                    <NavItem>
                         {this.logoutBtn()}
                     </NavItem>
                 </Nav>

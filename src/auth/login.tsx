@@ -4,6 +4,7 @@ import * as React from 'react';
 //import Label from '@material-ui/core';
 //import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import './login.css';
 import {Form, FormGroup, Input, Label} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper'
@@ -51,20 +52,21 @@ class Login extends React.Component<acceptedProps, valueTypes> {
     };
 render() {
     return (
-    <div>
+    <div id="loginDiv">
         <h1 style={{textAlign:"center"}}>Login</h1>
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input onChange={(e) => this.setState({userName: e.target.value})} 
+                <Label htmlFor="username">Username  </Label>
+                <Input className="loginInput" onChange={(e) => this.setState({userName: e.target.value})} 
                 name="username" type='text'/>{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                <Input onChange={(e) => this.setState({password: e.target.value})} 
+                <Label htmlFor="password">Password  </Label>
+                <Input className="loginInput" onChange={(e) => this.setState({password: e.target.value})} 
                 name="password" type='password'/>
             </FormGroup>
-            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Login</Button>
+            <br />
+            <Button type="submit" variant="contained" color="primary">Login</Button>
         </Form>
     </div>
     )

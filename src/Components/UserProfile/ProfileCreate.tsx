@@ -1,6 +1,6 @@
 import React from 'react';
 // import Modal from '@material-ui/core';
-import { Form, FormGroup, Label, Input, Modal } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Modal, Button } from 'reactstrap';
 
 type AcceptedProps = {
     token: any;
@@ -123,7 +123,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
                             <Label htmlFor="favEpisode">Favorite Episode:</Label>
                             <Input id="createInput" name="favEpisode" onChange={(e) => this.setState({favEpisode: e.target.value})}  />
                         </FormGroup>
-                        <button id="createButton" type="submit">Submit</button>
+                        <Button id="createButton" type="submit">Submit</Button>
                     </Form> 
                 </Modal>
         )

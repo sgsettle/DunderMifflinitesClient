@@ -28,7 +28,7 @@ type valueTypes = {
   id: string;
 };
 
-class UserProfile extends React.Component<acceptedProps, valueTypes> {
+class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {
@@ -126,7 +126,7 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
     );
   }
 }
-export default UserProfile;
+export default ProfileIndex;
 
 // WORKING MAP ( KEEP JUST IN CASE )
 {/* <TableContainer component={Paper}>

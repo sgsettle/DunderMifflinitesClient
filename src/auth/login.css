@@ -1,0 +1,10 @@
+.loginInput {
+    border-radius: 5px;
+    background-color: lightgrey;
+    height: 40px;
+    width: 300px;
+    text-indent: 5px;
+    margin-top: 1em;
+    /* margin-bottom: 1em; */
+    font-size: 18px;
+}

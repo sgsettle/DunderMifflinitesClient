@@ -10,9 +10,9 @@ type AcceptedProps = {
 }
 
 type ValueType = {
-    aboutMe: string,
-    favCharacter: string,
-    favEpisode: string,
+    aboutMe: {},
+    favCharacter: {},
+    favEpisode: {},
     open: boolean
 }
 
@@ -20,11 +20,11 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
     constructor(props: AcceptedProps){
         super(props);
         this.state = {
-            aboutMe: "",
-            favCharacter: "",
-            favEpisode: "",
+            aboutMe: {this:props.setProfileUpdate.aboutMe},
+            favCharacter: {this:props.setProfileUpdate.favCharacter},
+            favEpisode: {this:props.setProfileUpdate.favEpisode},
             open: false
-        }
+        } 
     }
 
     handleSubmit = (event: any) => {

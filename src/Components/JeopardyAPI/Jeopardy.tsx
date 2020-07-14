@@ -17,16 +17,27 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
         }
     }
 
+    componentDidMount = () => {
+        const getInfo = () => {
+        fetch(
+            'http://jservice.io/api/random', {
+            method: 'GET',
+            })
+        .then((result) => result.json())
+        .then((value) => {
+            console.log(value);
+            this.setState({
+                question: value.question, 
+                answer: value.answer})
+        })
+        console.log(this.state.question)
+    }
+    getInfo();
+    }
+
     showModal = () => {
         this.setState({
             visible: true,
-        });
-    };
-
-    handleOk = (e: any) => {
-        console.log(e);
-        this.setState({
-            visible: false,
         });
     };
 
@@ -37,32 +48,25 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
         });
     };
 
-    componentDidMount() {
-        fetch(
-            'http://jservice.io/api/random'
-        )
-        .then((value) => value.json())
-        .then((json) => {
-            console.log(json);
-            this.setState({question: json.question, answer: json.answer})
-        })
-    }
-
     render() {
         return (
             <div>
-                <Button type="primary" onClick={this.showModal}>
+                <Button className="jeopardyButton" onClick={(e) => {
+                    this.showModal()
+                    this.componentDidMount()
+                }}>
                     Jeopardy
                 </Button>
                 <Modal
-                title="Basic Modal"
+                title="Jeopardy Questions"
                 visible={this.state.visible}
-                onOk={this.handleOk}
+                onOk={this.componentDidMount}
                 onCancel={this.handleCancel}
                 >
-                    <h1>Jeopardy Question:</h1>
-                    <h3>{this.state.question}</h3>
-                    <p>{this.state.answer}</p>
+                    <div className="jeopardyDiv">
+                    <h3>Question: {this.state.question}</h3>
+                    <p>Answer: {this.state.answer}</p>
+                    </div>
                 </Modal>
             </div>
         )

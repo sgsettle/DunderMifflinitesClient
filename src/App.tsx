@@ -6,6 +6,7 @@ import FeedIndex from './Components/Feed/FeedIndex';
 import { render } from '@testing-library/react';
 import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
@@ -78,7 +79,9 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
+      <Router>
       <SiteBar clearToken={this.clearToken}/> 
+      </Router>
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
     </div>
