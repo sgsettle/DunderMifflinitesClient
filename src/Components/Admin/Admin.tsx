@@ -34,25 +34,6 @@ export default class AdminIndex extends React.Component<acceptedProps, valueType
             dataTable: []
         }
     }
-
-    // fetchUsers = (user: any) => {
-    //     fetch(`http://localhost:3000/user/`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-type":"application/json"
-    //         }
-    //     })
-    //     .then((res) => res.json())
-    //     .then((userData) => {
-    //         console.log("User data", userData);
-    //         this.setState({
-    //            dataTable: userData.user
-    //         })
-    //         console.log("USERSDATA", this.state.dataTable)
-    //     })
-    // }
-
-
     fetchUsers = () => {
         console.log('Fetching a post by ' + this.state.username);
         fetch('http://localhost:3000/user', {
@@ -80,7 +61,7 @@ export default class AdminIndex extends React.Component<acceptedProps, valueType
         }).then(() => this.fetchUsers())
     }
 
-    //PROSPECTIVE TURNARY FOR POST DISPLAY
+    //PROSPECTIVE TERNARY FOR POST DISPLAY
 
     userMapper = () => {
         return this.state.dataTable.map((users: any, index) => {

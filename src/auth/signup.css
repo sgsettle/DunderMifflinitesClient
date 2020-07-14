@@ -1,8 +1,9 @@
 .signupLabel {
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
     justify-content: left;
     align-content: left;
+    font-family: 'American Typewriter Medium';
 }
 
 .signupInput {
@@ -18,6 +19,7 @@
 #signupBtn {
     margin-top: 10px;
     background-color: rgb(4,45,123);
+    font-family: 'American Typewriter Medium';
 }
 
 #signupInputEmail {
@@ -29,5 +31,9 @@
     margin-top: 1em;
     /* margin-bottom: 1em; */
     font-size: 18px;
-    margin-left: 35px;
+    margin-left: 30px;
+}
+#signupHeading {
+    text-align: center;
+    font-family: 'American Typewriter Medium';
 }

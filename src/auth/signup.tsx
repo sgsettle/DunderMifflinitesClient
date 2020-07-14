@@ -60,7 +60,7 @@ class Signup extends React.Component<acceptedProps, valueTypes> {
 render() {
     return (
     <div id="signupDiv">
-        <h1 style={{textAlign:'center'}}>Sign Up to Join the Fun</h1>
+        <h1 id="signupHeading" >Sign Up to Join the Fun</h1>
         <Form className='signupForm' onSubmit={this.handleSubmit}>
             <FormGroup>
                 <Label className="signupLabel" htmlFor="firstname">First Name:  </Label>
