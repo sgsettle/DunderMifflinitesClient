@@ -1,13 +1,11 @@
 import React from 'react';
 import './Feed.css';
 import CreatePost from './CreatePost';
-import Navbar from '../Navbar/NavBar';
 import Footer from '../Footer/Footer';
-
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
 //import IconButton from '@material-ui/core/IconButton';
-//import DeleteOutlineTwoToneIcon from '@material-ui/icons/';
+import DeleteTwoToneIcon from '@material-ui/icons/';
 
 type acceptedProps = {
     setUserName: string | any;

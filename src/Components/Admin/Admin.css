@@ -1,0 +1,26 @@
+#userlist {
+    background-image: url('../../Assets/paper.jpg');
+}
+
+#deleteMe {
+    background-color: rgb(6,45,123);
+    height: 60px;
+    width: 190px;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'American Typewriter Medium';
+}
+
+#listUserName {
+    font-size: 20px;
+    font-family: 'American Typewriter Medium';
+    font-weight: bold
+}
+
+#titleUserList {
+    background-image: url('../../Assets/paper.jpg');
+    font-size: 30px;
+    font-family: 'American Typewriter Medium';
+    font-weight: bold
+}

@@ -4,8 +4,11 @@ import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { render } from '@testing-library/react';
+//import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
+import AdminIndex from './Components/Admin/Admin';
+import { stat } from 'fs';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
 type valueTypes = {
@@ -70,6 +73,9 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
+      <AdminIndex
+      token={this.state.setToken} setUserName={this.updateUsername}
+      />
       <SiteBar clearToken={this.clearToken}/>
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}
