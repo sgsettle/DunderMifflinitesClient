@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button } from 'antd';
+import { Modal, Button, Tooltip } from 'antd';
 import './Brad.css';
 
 type acceptedProps = {
@@ -57,12 +57,14 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
   render() {
     return (
         <div>
-        <Button className='coinBtn' onClick={(e) => {
-            this.showModal()
-            this.componentDidMount()
-        }}>Get Litecoin Price
-        </Button>
-        
+          <Tooltip title='LiteCoin'>
+          <Button className='eachButton' shape='circle' size='large' onClick={(e) => {
+              this.showModal()
+              this.componentDidMount()
+          }}>L
+          </Button>
+          </Tooltip>
+
         <Modal
             title='Litecoin Quote'
             visible={this.state.visible}

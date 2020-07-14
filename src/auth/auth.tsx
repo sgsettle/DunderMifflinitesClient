@@ -7,7 +7,7 @@ import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
 import Login from './login';
-import LiteCoin from '../Components/Navbar/Brad';
+// import LiteCoin from '../Components/Navbar/Brad';
 import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 
@@ -53,7 +53,7 @@ class Auth extends React.Component<acceptedProps, typeState> {
                 <Login updateToken={this.props.token} setUserName={this.props.setUsername}/> :
                 <Signup updateToken={this.props.token} setUsername={this.props.setUsername}/>
                 }
-                <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>
+                <Button type="primary"  id="toggle" onClick={(e) => this.loginToggle(e)}>
                     {this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}
                     </Button>
             </div>
