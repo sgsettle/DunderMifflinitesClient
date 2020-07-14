@@ -4,6 +4,8 @@ import * as React from 'react';
 //import Label from '@material-ui/core/Label';
 import Button from '@material-ui/core/Button';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
+import './signup.css';
+import './auth.css';
 
 type valueTypes = {
     firstName: string,
@@ -57,20 +59,21 @@ class Signup extends React.Component<acceptedProps, valueTypes> {
     };
 render() {
     return (
-    <div>
+    <div id="signupDiv">
         <h1 style={{textAlign:'center'}}>Sign Up to Join the Fun</h1>
-        <Form onSubmit={this.handleSubmit}>
+        <Form className='signupForm' onSubmit={this.handleSubmit}>
             <FormGroup>
-                <Label htmlFor="firstname">First Name</Label>
-                <Input onChange={(e) => this.setState({firstName: e.target.value})} name="firstname" value={this.state.firstName} type='text'/>
+                <Label className="signupLabel" htmlFor="firstname">First Name:  </Label>
+                <Input className="signupInput" onChange={(e) => this.setState({firstName: e.target.value})} name="firstname" value={this.state.firstName} type='text'/>
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="lastname">Last Name</Label>
-                <Input onChange={(e) => this.setState({lastName: e.target.value})} name="lastname" value={this.state.lastName} type='text'/>
+                <Label className="signupLabel" htmlFor="lastname">Last Name:  </Label>
+                <Input className="signupInput" onChange={(e) => this.setState({lastName: e.target.value})} name="lastname" value={this.state.lastName} type='text'/>
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="username">Username</Label>
+                <Label className="signupLabel" htmlFor="username">Username:  </Label>
                 <Input 
+                className="signupInput"
                 onChange={(e) => this.setState({userName: e.target.value})} 
                 value={this.state.userName} 
                 name="username" type='text' 
@@ -79,22 +82,22 @@ render() {
               />
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="email">Email</Label>
-                <Input onChange={(e) => this.setState({email: e.target.value})} 
+                <Label className="signupLabel" htmlFor="email">Email:  </Label>
+                <Input id="signupInputEmail" onChange={(e) => this.setState({email: e.target.value})} 
                 value={this.state.email} 
                 name="email" type='email' 
                 pattern='.+@.+.com' 
                 title='Must be in standard email format. Ex: youremail@email.com'/>
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                <Input onChange={(e) => this.setState({password: e.target.value})} name="password" 
+                <Label className="signupLabel" htmlFor="password">Password:  </Label>
+                <Input className="signupInput"onChange={(e) => this.setState({password: e.target.value})} name="password" 
                 value={this.state.password} 
                 type='password'
                 pattern='[a-zA-Z0-9]+'
                 title='Password must contain one number, one capital letter, and be 5-15 characters in length.'/>
             </FormGroup>
-            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Signup</Button>
+            <Button type="submit" variant="contained" color="primary" id="signupBtn">Signup</Button>
         </Form>
     </div>
     )

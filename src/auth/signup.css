@@ -1,0 +1,33 @@
+.signupLabel {
+    font-size: 16px;
+    text-align: left;
+    justify-content: left;
+    align-content: left;
+}
+
+.signupInput {
+    border-radius: 5px;
+    background-color: lightgrey;
+    height: 35px;
+    width: 300px;
+    text-indent: 5px;
+    margin-top: 1em;
+    /* margin-bottom: 1em; */
+    font-size: 18px;
+}
+#signupBtn {
+    margin-top: 10px;
+    background-color: rgb(4,45,123);
+}
+
+#signupInputEmail {
+    border-radius: 5px;
+    background-color: lightgrey;
+    height: 35px;
+    width: 300px;
+    text-indent: 5px;
+    margin-top: 1em;
+    /* margin-bottom: 1em; */
+    font-size: 18px;
+    margin-left: 35px;
+}

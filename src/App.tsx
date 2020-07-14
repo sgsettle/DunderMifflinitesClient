@@ -73,9 +73,9 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
-      <AdminIndex
+      {/* <AdminIndex
       token={this.state.setToken} setUserName={this.updateUsername}
-      />
+      /> */}
       <SiteBar clearToken={this.clearToken}/>
       {this.protectedViews()}
       {/* router DOM will go here navbar/sitebar/*/}

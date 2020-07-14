@@ -48,7 +48,7 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <Container id="auth-container">
             <img id="dmlogo" src={logoPic} alt="logo" />
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
-            <div className="signuplogin">
+            <div id="signuplogin">
                 {this.state.showLogin ? 
                 <Login updateToken={this.props.token} setUserName={this.props.updateUserName}/> :
                 <Signup updateToken={this.props.token} setUserName={this.props.updateUserName}/>
