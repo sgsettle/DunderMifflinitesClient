@@ -6,7 +6,7 @@ import { Form, FormGroup, Label, Input, Modal, Button } from 'reactstrap';
 type AcceptedProps = {
     token: any;
     fetchProfiles: any,
-    updateOff: any
+    createOff: any
 }
 
 type ValueTypes = {
@@ -31,7 +31,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
             userPhoto: "",
             favCharacter: "",
             favEpisode: "",
-            open: true
+            open: false
         }
     }
 
@@ -61,19 +61,16 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
         .then(json => {
             console.log(json)
             this.props.fetchProfiles();
-            this.closeModal();
+            this.props.createOff();
         })
     } 
 
-    handleOnSubmit = (event: any) => {
-        event.preventDefault()
-
-    }
+   
 // ternary to check if they've created a user vs login
 // true & false value on created a user or not
-displayModal = () => {
-    return 
-}
+// displayModal = () => {
+//     return 
+// }
 
 
     // handleClose = (e: any) => {
@@ -89,11 +86,11 @@ displayModal = () => {
     //     })
     // }
 
-    closeModal = () => {
-        this.setState({
-            open: false,
-        })
-    }
+    // closeModal = () => {
+    //     this.setState({
+    //         open: false,
+    //     })
+    // }
 
     // componentDidMount() {
     //     this.handleSubmit();
@@ -105,7 +102,7 @@ displayModal = () => {
 
     render() {
         return (
-                <Modal isOpen={this.state.open} className="createModal">
+                <Modal isOpen={true} className="createModal">
                     <Form id="createForm" onSubmit={this.handleSubmit} >
                         <FormGroup>
                             <Label htmlFor="aboutMe">About Me:</Label>

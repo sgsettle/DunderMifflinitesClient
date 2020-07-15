@@ -7,6 +7,7 @@ import ProfileFeed from '../ProfileFeed/ProfileFeed';
 //import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
 
@@ -26,7 +27,9 @@ type valueTypes = {
   favEpisode: string;
   dataTable: [];
   updateActive: boolean;
+  createActive: boolean;
   setProfileUpdate: string;
+  setProfileCreate: string;
   profile: string;
   id: string;
 };
@@ -44,11 +47,25 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
       favEpisode: "",
       dataTable: [],
       updateActive: false,
+      createActive: false,
       setProfileUpdate: "",
+      setProfileCreate: "",
       profile: "",
       id: "",
     };
   }
+
+  createUserProfile = (profile: any) => {
+    this.setState({ setProfileCreate: profile });
+  };
+
+  createOn = () => {
+      this.setState({ createActive: true });
+  };
+
+  createOff = () => {
+      this.setState({ createActive: false });
+  };
 
   editUpdateProfile = (profile: any) => {
     this.setState({ setProfileUpdate: profile });
@@ -86,11 +103,12 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
     return (
         <div className="mainProfileDiv">
             <div className="userDiv">
-          <ProfileCreate
+          {this.state.createActive ? <ProfileCreate
+        //   setProfileCreate={this.state.setProfileCreate}
             token={this.props.token}
-            updateOff={this.updateOff}
+            createOff={this.createOff}
             fetchProfiles={this.fetchProfiles}
-          />
+          /> : <></>}
           {this.state.updateActive ? <ProfileEdit 
                  setProfileUpdate={this.state.setProfileUpdate}
                   updateOff={this.updateOff} 
@@ -108,6 +126,10 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
                     </div>
                     <Container className='aboutInfo'>
                     <div className="editIconDiv">
+                    <AddCircleIcon onClick={() => {
+                        this.createUserProfile(profile)
+                        this.createOn()
+                    }}/>
                     <EditIcon onClick={()=> {
                     this.editUpdateProfile(profile)
                     this.updateOn()
