@@ -3,7 +3,6 @@ import './Feed.css';
 import CreatePost from './CreatePost';
 import Comments from './Comments/Comments';
 import Footer from '../Footer/Footer';
-
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,7 +10,7 @@ import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
 import { stringify } from 'querystring';
 
 type acceptedProps = {
-    setUsername: string | any;
+    setUserName: string | any;
     // setImage: string | any;
     // setText: string | any;
     // setLink: string | any;
@@ -100,7 +99,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
                         <p id='cardText'>{feeds.text}</p>
                         <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
                         
-                        <Comments setUsername={this.props.setUsername} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
+                        <Comments setUsername={this.props.setUserName} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
                         
                     </Card>
                     

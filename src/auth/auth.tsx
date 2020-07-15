@@ -7,7 +7,6 @@ import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
 import Login from './login';
-// import LiteCoin from '../Components/Navbar/Brad';
 import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 
@@ -18,7 +17,7 @@ type acceptedProps = {
 }
 
 type typeState ={
-    showLogin: boolean
+    showLogin: boolean,
 }
 
 class Auth extends React.Component<acceptedProps, typeState> {
@@ -48,10 +47,10 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <Container id="auth-container">
             <img id="dmlogo" src={logoPic} alt="logo" />
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
-            <div className="signuplogin">
+            <div id="signuplogin">
                 {this.state.showLogin ? 
-                <Login updateToken={this.props.token} setUserName={this.props.setUsername}/> :
-                <Signup updateToken={this.props.token} setUsername={this.props.setUsername}/>
+                <Login updateToken={this.props.token} setUserName={this.props.updateUserName}/> :
+                <Signup updateToken={this.props.token} setUserName={this.props.updateUserName}/>
                 }
                 <Button type="primary"  id="toggle" onClick={(e) => this.loginToggle(e)}>
                     {this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}
@@ -71,8 +70,8 @@ class Auth extends React.Component<acceptedProps, typeState> {
 
             {/* <footer>
                 <LiteCoin />
-            </footer> */}
-            </Container>
+            </footer>*/}
+            </Container> 
         )   
     }
 }

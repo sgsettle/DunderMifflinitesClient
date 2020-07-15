@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
-import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
-import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-
+import './App.css';
+import UserProfile from './Components/UserProfile/ProfileIndex';
+import Admin from './Components/Admin/Admin';
 
 import './App.css';
 
@@ -23,7 +23,6 @@ type valueTypes = {
   setToken: string | any,
   setComments: any
 }
-
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
@@ -70,7 +69,7 @@ updateUsername = (newUsername: string) => {
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <FeedIndex
-      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/> 
+      token={this.state.setToken} setUserName={this.updateUsername} setComments={this.state.setComments}/> 
       ) : (
      <Auth
       token={this.updateToken}
@@ -84,6 +83,7 @@ updateUsername = (newUsername: string) => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <UserProfile 
       token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
+      />
     ) : (
       <Auth
       token={this.updateToken}
@@ -95,7 +95,11 @@ updateUsername = (newUsername: string) => {
 
   protectedViewThree = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-        '<Admin />'
+        <Admin 
+        token={this.updateToken}
+        updateUserName={this.updateUsername}
+        setUsername={this.updateUsername}
+        />
     ) : (
       <Auth
       token={this.updateToken}
@@ -110,12 +114,13 @@ render() {
     <div className="App">
       <Router>
 
-      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews} protectedViewsTwo={this.protectedViewTwo} protectedViewsThree={this.protectedViewThree}/> 
+      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews}
+       protectedViewsTwo={this.protectedViewTwo} 
+       protectedViewsThree={this.protectedViewThree}/> 
       
       </Router>
     </div>
   )
-
   }
 };
 

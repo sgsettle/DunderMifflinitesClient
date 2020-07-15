@@ -1,4 +1,8 @@
 
+
+#coinModal {
+    font-size: 20px;
+
 /* #coinModal {
     height: 175px;
     width: 175px;
@@ -12,3 +16,4 @@
     height: 100%;
     justify-content: space-evenly;
 }
+

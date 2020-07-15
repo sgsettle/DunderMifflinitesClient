@@ -3,13 +3,13 @@ import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
 import Jeopardy from './JeopardyAPI/Jeopardy';
 import Bored from './BoredAPI/BoredAPI_Kate';
-
 import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 // import Button from "@material-ui/core/Button";
 import './NavBar.css';
+import LiteCoin from './Brad';
 
 type acceptedProps = {
     clearToken: any,
@@ -23,6 +23,7 @@ type valueTypes = {
     setToken: string | any,
     userName: string | any,
     setUserName: string | any,
+    userRole: string | any,
 }
 
 export default class SiteBar extends React.Component<acceptedProps, valueTypes> {
@@ -32,7 +33,8 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             token: "",
             setToken: "",
             userName: "",
-            setUserName: ""
+            setUserName: "",
+            userRole: "",
         };
     }
 
@@ -80,7 +82,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             ""
         )
     }
-    
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
@@ -137,5 +138,4 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             </Switch>
         </div>
     )
-    }
-}
+    }}
