@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
-import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
 import { render } from '@testing-library/react';
@@ -23,7 +22,6 @@ type valueTypes = {
   setToken: string | any,
   setComments: any
 }
-
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
@@ -114,7 +112,6 @@ render() {
       </Router>
     </div>
   )
-
   }
 };
 

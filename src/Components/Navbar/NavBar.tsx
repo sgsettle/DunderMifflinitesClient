@@ -9,6 +9,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 // import Button from "@material-ui/core/Button";
 import './NavBar.css';
+import LiteCoin from './Brad';
 
 type acceptedProps = {
     clearToken: any,
@@ -22,6 +23,7 @@ type valueTypes = {
     setToken: string | any,
     userName: string | any,
     setUserName: string | any,
+    userRole: string | any,
 }
 
 export default class SiteBar extends React.Component<acceptedProps, valueTypes> {
@@ -31,7 +33,8 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             token: "",
             setToken: "",
             userName: "",
-            setUserName: ""
+            setUserName: "",
+            userRole: "",
         };
     }
 
@@ -79,7 +82,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             ""
         )
     }
-    
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
@@ -120,6 +122,33 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
 
     render() {
     return (
+        
+            <Navbar id="Navbar" light expand="md" >
+                <NavbarBrand id="NavbarBrand" href="/">
+                    
+                    <img id="brandlogohome" src={logoPic}/>
+                    
+                </NavbarBrand>
+                    <Nav id='navButtons' navbar>
+                            {/* {this.viewAdmin()} */}
+                            <Button className='eachButton' size='large'>
+                                Profile
+                            </Button>
+                            <Tooltip title='Bored?'>
+                                <Button className='eachButton' shape="circle" size="large">
+                                B
+                                </Button>
+                            </Tooltip>
+                            <Tooltip title='Jeopardy'>
+                                <Button className='eachButton' shape="circle" size='large'>
+                                J
+                                </Button>
+                            </Tooltip>
+                                <Litecoin />
+                            {this.logoutBtn()}
+                    </Nav>
+            </Navbar>
+       
         <div className="classes.root">
             {this.logoutBtn()}
             <Switch>
@@ -135,5 +164,4 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             </Switch>
         </div>
     )
-    }
-}
+    }}
