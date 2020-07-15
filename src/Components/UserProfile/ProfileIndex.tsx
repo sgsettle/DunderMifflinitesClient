@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./ProfileIndex.css";
 import ProfileCreate from "./ProfileCreate";
 import ProfileEdit from "./ProfileEdit";
+import ProfileFeed from '../ProfileFeed/ProfileFeed';
 //import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
@@ -10,9 +11,9 @@ import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
 
 type acceptedProps = {
-  setUsername: any;
   setComments: any;
   token: any;
+  setUsername: any;
 };
 
 type valueTypes = {
@@ -30,7 +31,7 @@ type valueTypes = {
   id: string;
 };
 
-class UserProfile extends React.Component<acceptedProps, valueTypes> {
+class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {
@@ -83,7 +84,8 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
   
   render() {
     return (
-      <div className="mainProfileDiv">
+        <div className="mainProfileDiv">
+            <div className="userDiv">
           <ProfileCreate
             token={this.props.token}
             updateOff={this.updateOff}
@@ -94,6 +96,7 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
                   updateOff={this.updateOff} 
                   token={this.props.token} 
                   fetchProfiles={this.fetchProfiles}/> : <></>}
+            </div>
         <div className="userInfo">
           <Container>
               <div>
@@ -124,11 +127,14 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
               </div>
           </Container>
         </div>
+        <div className="profileFeedDiv">
+            <ProfileFeed token={this.props.token} setUsername={this.props.setUsername} setComments={this.props.setComments} />
+        </div>        
       </div>
     );
   }
 }
-export default UserProfile;
+export default ProfileIndex;
 
 // WORKING MAP ( KEEP JUST IN CASE )
 {/* <TableContainer component={Paper}>
