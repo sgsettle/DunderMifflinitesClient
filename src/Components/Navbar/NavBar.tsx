@@ -19,6 +19,7 @@ type valueTypes = {
     setToken: string | any,
     userName: string | any,
     setUserName: string | any,
+    userRole: string | any,
 }
 
 type acceptedProps = {
@@ -32,7 +33,8 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             token: "",
             setToken: "",
             userName: "",
-            setUserName: ""
+            setUserName: "",
+            userRole: "",
         };
     }
 
@@ -45,8 +47,13 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
     // }
   
     // viewAdmin = () => {
+    //     return this.props.userRole === 'admin' ? 
+    //     <Link to="./admin" id="link">
+    //         <Button>Admin</Button>
+    //     </Link>
+    //     : null
+    //  }
 
-    // }
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
@@ -57,8 +64,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 className='eachButton'
                 onClick={this.props.clearToken}
                 id="navLog"
-                // style={{ marginLeft: "90vw"}}
-                
                 size='large'
                 >Logout
                     {/* <Link to="/">Logout</Link>
@@ -81,6 +86,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                     
                 </NavbarBrand>
                     <Nav id='navButtons' navbar>
+                            {/* {this.viewAdmin()} */}
                             <Button className='eachButton' size='large'>
                                 Profile
                             </Button>

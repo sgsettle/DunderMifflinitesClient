@@ -35,7 +35,7 @@ export default class AdminIndex extends React.Component<acceptedProps, valueType
         }
     }
     fetchUsers = () => {
-        console.log('Fetching a post by ' + this.state.username);
+        console.log('Fetching users by ' + this.state.username);
         fetch('http://localhost:3000/user', {
             method: 'GET',
             headers: {

@@ -54,7 +54,7 @@ class Login extends React.Component<acceptedProps, valueTypes> {
 render() {
     return (
     <div id='loginDiv'>
-        <h1 id="loginHeading" style={{textAlign:"center"}}>Login</h1>
+        <h1 id="loginHeading">Login</h1>
         <Form className="loginForm" onSubmit={this.handleSubmit}>
             <FormGroup>
                 <Label id='loginLabel' htmlFor="username">Username:  </Label>

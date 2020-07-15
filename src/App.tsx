@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
-import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
-import { render } from '@testing-library/react';
 //import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-import './App.css';
-import AdminIndex from './Components/Admin/Admin';
-import { stat } from 'fs';
+//import Admin from './Components/Admin/Admin';
 import Footer from './Components/Footer/Footer';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
@@ -74,7 +70,7 @@ updateUsername = (newUsername: string) => {
 render() {
   return (
     <div className="App">
-      {/* <AdminIndex
+      {/* <Admin
       token={this.state.setToken} setUserName={this.updateUsername}
       /> */}
       <SiteBar clearToken={this.clearToken}/>

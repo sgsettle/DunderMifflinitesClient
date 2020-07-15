@@ -15,11 +15,11 @@ h1 {
 }
 #auth-container {
     background-image: url('../Assets/michaelscott.jpg');
-    max-width: 140%;
+    max-width: 120%;
     height: 1000px;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 20px;
+    padding: 10px;
 }
 #dmlogo {
     margin-top: 15px
@@ -37,7 +37,7 @@ h3 {
 }
 #signuplogin {
     width: 30%;
-    margin-left: 120px;
+    margin-left: 150px;
     margin-top: 30px;
     border: 2px solid black;
     border-radius: 5px;
