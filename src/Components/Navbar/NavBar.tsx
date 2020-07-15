@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
-import Bored from './BoredAPI_Kate';
+import Jeopardy from './JeopardyAPI/Jeopardy';
+import Bored from './BoredAPI/BoredAPI_Kate';
 
 import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
@@ -51,7 +52,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button className='eachButton' size='small'>
+            <Button style={{width: '100px'}} size='large'>
                 <Link to='/Profile'>Profile</Link>
             </Button>
         )
@@ -63,7 +64,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button>
+            <Button style={{width: '100px'}} size='large'>
                 <Link to="/Admin">Admin</Link>
             </Button>
         )
@@ -93,10 +94,11 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 {this.viewProfile()}
                 {this.adminValidation()}
                 <Bored />
+                <Jeopardy />
                 <Litecoin />
                 {/* if you want to do dropdown put it  here */}
                 <Button
-                className='eachButton'
+                style={{width: '100px'}}
                 onClick={this.props.clearToken}
                 id="navLog"
                 size='large'

@@ -4,19 +4,19 @@ import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
-import { render } from '@testing-library/react';
 import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-import './App.css';
-import Profile from './Components/UserProfile/ProfileIndex'
-//import {BrowserRouter as Router} from 'react-router-dom';
 
+
+import './App.css';
 
 type acceptedProps = {
   updateToken: any,
   updateUserName: any,
   clearToken: any,
-  setComments: any
+  setComments: any,
+  setUsername: any,
+  token: any,
 }
 type valueTypes = {
   setUserName: string | any,
@@ -82,7 +82,8 @@ updateUsername = (newUsername: string) => {
 
   protectedViewTwo = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      <Profile />
+      <UserProfile 
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
     ) : (
       <Auth
       token={this.updateToken}
@@ -94,7 +95,7 @@ updateUsername = (newUsername: string) => {
 
   protectedViewThree = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-        "<Admin />"
+        '<Admin />'
     ) : (
       <Auth
       token={this.updateToken}

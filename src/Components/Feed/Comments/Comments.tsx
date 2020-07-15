@@ -1,5 +1,6 @@
 import React from 'react';
 import './Comments.css';
+import EditComment from './EditComment';
 
 import  Tooltip  from '@material-ui/core/Tooltip';
 import  Dialog  from '@material-ui/core/Dialog';
@@ -10,8 +11,9 @@ import Table from 'reactstrap'
 type acceptedProps = {
     setUsername: string;
     setComments: string;
-    token: any
-    fetchUsers: any
+    token: any;
+    fetchUsers: any;
+
 }
 
 type valueTypes = {
@@ -19,7 +21,9 @@ type valueTypes = {
     comment: string;
     dataTable: [];
     open: boolean;
-    commentData: []
+    commentData: [];
+    setUpdateComment: {};
+    setUpdateActive: boolean;
 }
 
 export default class Comments extends React.Component< acceptedProps, valueTypes > {
@@ -31,6 +35,8 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
             dataTable: [],
             commentData: [],
             open: false,
+            setUpdateComment: {},
+            setUpdateActive: false,
         }
     }
 
@@ -51,6 +57,11 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
     //         console.log("USERSDATA", this.state.dataTable)
     //     })
     // }
+
+    editUpdateComment = (comment: any) => {
+        console.log(comment);
+        this.setState({setUpdateComment: comment})
+    }
 
     //GET ALL COMMENTS, FETCH COMMENT DATA
     fetchComments = () => {
@@ -107,10 +118,13 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                     <td>{comment.userName}</td>
                     <td>{comment.comment}</td>
                     <td>
-                        {/* <Tooltip title='Edit Comment'>
-                            <Button shape='circle' icon={ <EditOutlined />} />
-                        </Tooltip> */}
-                                    
+                        <Tooltip title='Edit Comment'>
+                            <Button shape='circle' icon={ <EditOutlined />} onClick={() => {
+                                this.editUpdateComment(comment)
+                                this.updateOn()
+                            }} />
+                        </Tooltip>
+                         {/* <EditComment token={this.props.token} setUsername={this.props.setUsername} setComments={this.props.setComments}/>            */}
                         <Tooltip title='Delete Comment'>
                             <Button shape='circle' icon={ <DeleteOutlined/> } onClick={() => {
                                 this.deleteComment(comment);
@@ -123,6 +137,16 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                 </>
             )
         })
+    }
+
+    updateOn = () => {
+        this.setState({
+            setUpdateActive: true,
+        })
+    }
+
+    updateOff = () => {
+        this.setState({setUpdateActive: false})
     }
 
     openDialog = () => {
@@ -177,7 +201,17 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                         <Tooltip className='thisSection' title='Add Comment' >
                             <Button className='thisSection' style={{width: '60px', marginLeft: '42.5%'}} type='primary' onClick={this.createComment}>Add</Button>
                         </Tooltip>
-                    </Dialog>    
+                    </Dialog> 
+                      {this.state.setUpdateActive ? (
+                          <EditComment 
+                          token={this.props.token} 
+                            updateOff={this.updateOff}
+                            fetchComment={this.fetchComments}
+                            setUpdateComment={this.state.setUpdateComment}
+                        />        
+                      ): (
+                          <></>
+                      )} 
                 </div>
             </div>
         )
