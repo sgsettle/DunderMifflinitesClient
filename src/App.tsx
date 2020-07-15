@@ -4,11 +4,8 @@ import Auth from './auth/auth';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
 import SiteBar from './Components/Navbar/NavBar';
-import './App.css';
 import UserProfile from './Components/UserProfile/ProfileIndex';
 import Admin from './Components/Admin/Admin';
-
-import './App.css';
 
 type acceptedProps = {
   updateToken: any,
@@ -82,8 +79,7 @@ updateUsername = (newUsername: string) => {
   protectedViewTwo = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <UserProfile 
-      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}
-      />
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
     ) : (
       <Auth
       token={this.updateToken}

@@ -2,7 +2,7 @@
 
 body {
     background-color: #fff;
-    background-image: url('../../Assets/michaelOffice.jpg');
+
     /* font-family: "ITC American Typewriter"; */
 }
 
@@ -12,11 +12,19 @@ body {
 }
 
 .mainProfileDiv {
-    margin-top: 120px;
+    background-image: url('../../Assets/michaelOffice.jpg');
+    /* margin-top: 120px;
     margin-left: 70px;
     display: inline-flex;
-    float: left;
+    float: left; */
 }
+
+ /* .userInfo {
+     margin-top: 120px;
+    margin-left: 70px;
+    display: inline-flex;
+     float: left;
+} */
 
 .nameDiv {
     background-color: rgba(255, 255, 255, 0.5);
