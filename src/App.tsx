@@ -82,7 +82,7 @@ updateUsername = (newUsername: string) => {
   protectedViewTwo = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <UserProfile 
-      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}
       />
     ) : (
       <Auth
@@ -97,8 +97,7 @@ updateUsername = (newUsername: string) => {
     return this.state.setToken === localStorage.getItem("token") ? (
         <Admin 
         token={this.updateToken}
-        updateUserName={this.updateUsername}
-        setUsername={this.updateUsername}
+        setUserName={this.updateUsername}
         />
     ) : (
       <Auth
