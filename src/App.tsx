@@ -4,7 +4,7 @@ import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { render } from '@testing-library/react';
-import UserProfile from './Components/UserProfile/ProfileIndex'
+import ProfileIndex from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
@@ -65,8 +65,8 @@ updateUsername = (newUsername: string) => {
 
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      <FeedIndex
-      token={this.state.setToken} setUsername={this.updateUsername}/> 
+      <ProfileIndex
+      token={this.state.setToken} /> 
       ) : (
      <Auth
       token={this.updateToken}
@@ -81,8 +81,9 @@ render() {
     <div className="App">
       <Router>
       <SiteBar clearToken={this.clearToken}/> 
-      </Router>
       {this.protectedViews()}
+      {/* <UserProfile token={"token thing"} /> */}
+      </Router>
       {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )

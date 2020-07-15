@@ -16,8 +16,8 @@ body {
     background-position: center;
     box-shadow: #000e91 0 0 4px 4px;
     border-radius: 5px;
-    height: 70%;
-    width: 70%;
+    height: 70vh;
+    width: 70vw;
     margin-top: 2%;
     overflow-y: scroll;
     overflow-x: hidden;

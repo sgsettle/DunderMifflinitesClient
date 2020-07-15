@@ -1,6 +1,6 @@
 import React from 'react';
 import { stringify } from 'querystring';
-import { Modal, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 type AcceptedProps = {
     token: any,
@@ -20,15 +20,16 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
     constructor(props: AcceptedProps){
         super(props);
         this.state = {
-            aboutMe: {this:props.setProfileUpdate.aboutMe},
-            favCharacter: {this:props.setProfileUpdate.favCharacter},
-            favEpisode: {this:props.setProfileUpdate.favEpisode},
+            aboutMe: this.props.setProfileUpdate.aboutMe,
+            favCharacter: this.props.setProfileUpdate.favCharacter,
+            favEpisode: this.props.setProfileUpdate.favEpisode,
             open: false
         } 
     }
 
-    handleSubmit = (event: any) => {
-        fetch('http://localhost:3000/profile/', {
+    handleSubmit = () => {
+        // event.preventDefault();
+        fetch(`http://localhost:3000/profile/`, {
             method: 'PUT',
             body: JSON.stringify({
                 aboutMe: this.state.aboutMe,
@@ -42,7 +43,7 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
         }).then((res) => {
             console.log(res);
             this.props.fetchProfiles();
-            console.log("can i see this", this.props.fetchProfiles);
+            console.log("can i see this", this.props.fetchProfiles());
             this.props.updateOff();
         })
     }
@@ -50,6 +51,7 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
     render() {
         return(
             <Modal isOpen={true} className="editModal">
+                <ModalHeader>Edit Profile</ModalHeader>
             <ModalBody>
             <Form id="editForm" onSubmit={this.handleSubmit} >
                 <FormGroup>

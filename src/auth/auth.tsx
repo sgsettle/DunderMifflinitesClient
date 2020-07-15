@@ -7,7 +7,7 @@ import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
 import Login from './login';
-import LiteCoin from '../Components/Navbar/Brad';
+// import LiteCoin from '../Components/Navbar/Brad';
 import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 

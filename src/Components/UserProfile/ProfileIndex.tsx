@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./ProfileIndex.css";
 import ProfileCreate from "./ProfileCreate";
 import ProfileEdit from "./ProfileEdit";
+import ProfileFeed from '../ProfileFeed/ProfileFeed';
 //import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
@@ -11,6 +12,7 @@ import { stringify } from "querystring";
 
 type acceptedProps = {
   token: any;
+  setUsername: any;
 };
 
 type valueTypes = {
@@ -81,7 +83,8 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   
   render() {
     return (
-      <div className="mainProfileDiv">
+        <div className="mainProfileDiv">
+            <div className="userDiv">
           <ProfileCreate
             token={this.props.token}
             updateOff={this.updateOff}
@@ -92,6 +95,7 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
                   updateOff={this.updateOff} 
                   token={this.props.token} 
                   fetchProfiles={this.fetchProfiles}/> : <></>}
+            </div>
         <div className="userInfo">
           <Container>
               <div>
@@ -122,6 +126,9 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
               </div>
           </Container>
         </div>
+        <div className="profileFeedDiv">
+            <ProfileFeed token={this.props.token} setUsername={this.props.setUsername} />
+        </div>        
       </div>
     );
   }

@@ -24,11 +24,11 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
             method: 'GET',
             })
         .then((result) => result.json())
-        .then((value) => {
-            console.log(value);
+        .then((json) => {
+            console.log(json[0].question);
             this.setState({
-                question: value.question, 
-                answer: value.answer})
+                question: json[0].question, 
+                answer: json[0].answer})
         })
         console.log(this.state.question)
     }

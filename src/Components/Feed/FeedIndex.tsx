@@ -1,7 +1,6 @@
 import React from 'react';
 import './Feed.css';
 import CreatePost from './CreatePost';
-import Navbar from '../Navbar/NavBar';
 import Footer from '../Footer/Footer';
 
 import { Container } from 'reactstrap';

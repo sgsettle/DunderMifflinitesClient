@@ -1,20 +1,21 @@
 import React from 'react';
+//import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Litecoin from './Brad';
+
 import {
     Navbar, 
     NavbarBrand,
     Nav,
-    NavItem, 
-    Button
+    NavItem
 } from 'reactstrap';
 import {
     Route,
     Link,
     Switch
 } from 'react-router-dom';
+import { Button, Tooltip } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
-//import {Route, Link, Switch } from 'react-router-dom';
-//import Auth from '../../auth/auth';
-import App from '../../App';
+
 import './NavBar.css';
 import ProfileIndex from '../UserProfile/ProfileIndex';
 import FeedIndex from '../Feed/FeedIndex';
@@ -43,24 +44,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
-    navBar = () => {
-        return (
-            <div>
-                <div>
-                    <ul>
-                        <li><Link to="/profile">Profile</Link></li>
-                        {/* <li><Link to="/feedindex">Feed</Link></li> */}
-                    </ul>
-                </div>
-                <div>
-                    <Switch>
-                        <Route exact path="/profile"><ProfileIndex token={this.state.token} /></Route>
-                        {/* <Route exact path="/feedindex"><FeedIndex token={this.state.token} /></Route> */}
-                    </Switch>
-                </div>
-            </div>
-        )
-    }
+
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
@@ -68,10 +52,12 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             ""
         ) : (
             <Button
+                className='eachButton'
                 onClick={this.props.clearToken}
-                color="inherit"
                 id="navLog"
-                style={{ marginLeft: "90vw"}}
+                // style={{ marginLeft: "90vw"}}
+                
+                size='large'
                 >Logout
                     {/* <Link to="/">Logout</Link>
                     <Switch>
@@ -91,13 +77,39 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             </NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                        {this.navBar()}
+                        {/* {this.navBar()} */}
                     </NavItem>
                     <NavItem>
                         {this.logoutBtn()}
                     </NavItem>
                 </Nav>
         </Navbar>
+        
+    //         <Navbar id="Navbar" light expand="md" >
+    //             <NavbarBrand id="NavbarBrand" href="/">
+                    
+    //                 <img id="brandlogohome" src={logoPic}/>
+                    
+    //             </NavbarBrand>
+    //                 <Nav id='navButtons' navbar>
+    //                         <Button className='eachButton' size='large'>
+    //                             Profile
+    //                         </Button>
+    //                         <Tooltip title='Bored?'>
+    //                             <Button className='eachButton' shape="circle" size="large">
+    //                             B
+    //                             </Button>
+    //                         </Tooltip>
+    //                         <Tooltip title='Jeopardy'>
+    //                             <Button className='eachButton' shape="circle" size='large'>
+    //                             J
+    //                             </Button>
+    //                         </Tooltip>
+    //                             <Litecoin />
+    //                         {this.logoutBtn()}
+    //                 </Nav>
+    //         </Navbar>
+        
     )
     }
 }
