@@ -1,6 +1,7 @@
 import React from 'react';
 // import Modal from '@material-ui/core';
-import { Form, FormGroup, Label, Input, Modal } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Modal, Button } from 'reactstrap';
+
 
 type AcceptedProps = {
     token: any;
@@ -30,7 +31,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
             userPhoto: "",
             favCharacter: "",
             favEpisode: "",
-            open: false
+            open: true
         }
     }
 
@@ -60,9 +61,39 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
         .then(json => {
             console.log(json)
             this.props.fetchProfiles();
-            this.props.updateOff();
+            this.closeModal();
         })
     } 
+
+    handleOnSubmit = (event: any) => {
+        event.preventDefault()
+
+    }
+// ternary to check if they've created a user vs login
+// true & false value on created a user or not
+displayModal = () => {
+    return 
+}
+
+
+    // handleClose = (e: any) => {
+    //     console.log(e);
+    //     this.setState({
+    //         open: false,
+    //     });
+    // };
+
+    // openModal = () => {
+    //     this.setState({
+    //         open: true,
+    //     })
+    // }
+
+    closeModal = () => {
+        this.setState({
+            open: false,
+        })
+    }
 
     // componentDidMount() {
     //     this.handleSubmit();
@@ -74,7 +105,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
 
     render() {
         return (
-                <Modal isOpen={false} className="createModal">
+                <Modal isOpen={this.state.open} className="createModal">
                     <Form id="createForm" onSubmit={this.handleSubmit} >
                         <FormGroup>
                             <Label htmlFor="aboutMe">About Me:</Label>
@@ -123,7 +154,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
                             <Label htmlFor="favEpisode">Favorite Episode:</Label>
                             <Input id="createInput" name="favEpisode" onChange={(e) => this.setState({favEpisode: e.target.value})}  />
                         </FormGroup>
-                        <button id="createButton" type="submit">Submit</button>
+                        <Button id="createButton" type="submit">Submit</Button>
                     </Form> 
                 </Modal>
         )
