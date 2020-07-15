@@ -1,6 +1,7 @@
 import React from 'react';
 //import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
+import Bored from './BoredAPI_Kate';
 
 import {
     Navbar, 
@@ -84,17 +85,13 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                             <Button className='eachButton' size='large'>
                                 Profile
                             </Button>
-                            <Tooltip title='Bored?'>
-                                <Button className='eachButton' shape="circle" size="large">
-                                B
-                                </Button>
-                            </Tooltip>
+                            <Bored />
                             <Tooltip title='Jeopardy'>
                                 <Button className='eachButton' shape="circle" size='large'>
                                 J
                                 </Button>
                             </Tooltip>
-                                <Litecoin />
+                            <Litecoin />
                             {this.logoutBtn()}
                     </Nav>
             </Navbar>

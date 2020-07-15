@@ -9,23 +9,26 @@ import './App.css';
 //import {BrowserRouter as Router} from 'react-router-dom';
 
 
-
-type valueTypes = {
-  setUserName: string | any,
-  setToken: string | any,
-}
 type acceptedProps = {
   updateToken: any,
   updateUserName: any,
-  clearToken: any
+  clearToken: any,
+  setComments: any
 }
+type valueTypes = {
+  setUserName: string | any,
+  setToken: string | any,
+  setComments: any
+}
+
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
     super(props);
     this.state = {
       setUserName: "",
-      setToken: ""
+      setToken: "",
+      setComments: '',
     };
   }
 
@@ -64,7 +67,7 @@ updateUsername = (newUsername: string) => {
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <FeedIndex
-      token={this.state.setToken} setUsername={this.updateUsername}/> 
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/> 
       ) : (
      <Auth
       token={this.updateToken}

@@ -1,44 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is Dunder Mifflinites?
 
-## Available Scripts
+Dunder Mifflinites is a collective project centering around the idea of creating a social media platform for fans of The Office. Here users can make a profile, post to a feed of all users posts, and comment on posts. We, the creators, wanted a space where we could discuss and revel in genius of The Office... and to find other people that would enjoy our jokes and memes.
 
-In the project directory, you can run:
+### Quick Start
 
-### `npm start`
+Feel free to clone and play around in the app!<br />
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a React app written in Legacy code and Typescript. 
+You will need to have all associated installations or run $npm update in your terminal to install all packages necessary for your machine to facilitate the code.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Screenshots of each page section are as follows:
 
-### `npm test`
+Initial Auth Page:
+![](AuthScreenshot.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Home/Main User Feed:
+![](FeedScreenshot.png)
 
-### `npm run build`
+User Profile:
+![]()
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Enjoy!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Wiki repository being developed for more detailed documentation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Disclaimer
 
-### `npm run eject`
+We do not own or claim to own the rights to any content relating to The Office and NBC. We operate solely
+under fair use as a fan site. If you plan to use content found on Dunder Mifflinites, attempt to get authorization from the owners. We are not liable for any copyright infringement.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Troubleshooting
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Dunder Mifflinites is a new application, you may encounter unexpected or unintended issues while running it. If that is the case, feel free to send us a pull request of suggested changes or comments. An FAQ page is in the works.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Authors of Dunder Mifflinites
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* **Brad Doizer** 
+A recent Eleven Fifty Academy front end web development graduate, continuing his education with UX/UI. He's a grade A teammate and problem solver unafraid to tackle errors and bugs. Throughout the project he built out all auth components, admin capabilities, and their styling. Never was there a more patient and personable team member.<br/>
+Currently looking for any Junior Web Dev job opportunities and experience: https://www.linkedin.com/in/brad-dozier-956a09a4/
 
-## Learn More
+* **Slayde Settle**
+A recent Eleven Fifty Academy front end web development graduate, continuing her education with their software development program. She has strong skills in styling, working through challenges, and generating ideas that many others may not. In Dunder Mifflinites she built the user profile, implemented router-dom, styled a number of components, and came up with the brilliant idea. Her spunk and energy make her a great addition to any team.<br/>
+Currently looking for any Junior Web Dev job opportunities and experience: https://www.linkedin.com/in/slayde-settle-b9547769/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **Kate Lockhart**
+A recent Eleven Fifty Academy front end web development graduate, continuing her education with their software development program. She plays hard and works harder to always get the job done. In this project, she created the server for the application and it's 4 databases, implemented the all user and profile feed, created the comment ability, built the Navbar & Footer, as well as styled throughout. She does her best to support her team mates and keep the project moving.<br/>
+Currently looking for any Junior Web Dev job opportunities and experience: https://www.linkedin.com/in/katelynlockhart/

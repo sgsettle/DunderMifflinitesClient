@@ -67,36 +67,39 @@ export default class EditPost extends React.Component<acceptedProps, valueTypes>
     body = (
         <div id='EditPostDiv'>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit} >
-                <h2 id='editUname'>{localStorage.getItem("username")}'s Post</h2>
+                <h2 id='editUname'>Edit Your Post:</h2>
                 <TextField 
                 className='createField'
                 id="standard-basic" 
-                label="Enter an image URL:" 
+                label="Image URL:" 
                 defaultValue={this.state.username}
                 onChange={(e: any) => this.setState({
                     image: e.target.value
                 })}
+                value={this.state.image}
                 />
                 <br />
                 <TextField
                 className='createField'
                 id="standard-basic"
-                label=""
+                label="Text:"
                 defaultValue={this.state.text}
                 multiline
                 onChange={(e)=> this.setState({
                     text: e.target.value
                 })}
+                value={this.state.text}
                 />
                 <br />
                 <TextField
                 className='createField'
                 id="standard-basic"
-                label='Link to something cool:'
+                label='Link:'
                 defaultValue={this.state.link}
                 onChange={(e) => this.setState({
                     link: e.target.value
                 })}
+                value={this.state.link}
                 />
                 <br />
                 <Button id='editPostButton' type='submit' variant='contained' color='primary' onClick={this.handleClose}>Add Post!</Button>
