@@ -1,5 +1,7 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { HashRouter, Route, NavLink, Switch } from 'react-router-dom';
+// import Feed from '../Feed/FeedIndex';
+// import Profile from '../UserProfile/ProfileIndex';
 import Litecoin from './Brad';
 import Bored from './BoredAPI_Kate';
 
@@ -37,17 +39,56 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
-    // viewFeed = () => {
-    //     <Link to='/feed'/>
-    // } 
-
-    // viewProfile = () => {
-
-    // }
-  
+    //path to auth/login page
     // viewAdmin = () => {
 
-    // }
+        // }
+
+    //path to home/feed    
+    viewFeed = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <NavLink to='/'>
+                <img id="brandlogohome" src={logoPic}/>
+            </NavLink>
+        )
+    } 
+
+    //path to user profile
+    viewProfile = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button className='eachButton' size='large'>
+                <NavLink to='/Profile'>Profile</NavLink>
+            </Button>
+        )
+
+    }
+  
+    //path to admin page 
+    adminPage = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button>
+                <NavLink to="/Admin">Admin</NavLink>
+            </Button>
+        )
+    }
+
+    //user role authorization for admin button
+    adminValidation = () => {
+        return localStorage.getItem('userRole') === 'admin' ? (
+            <Button>
+                {this.adminPage()}
+            </Button>
+        ) : (
+            ""
+        )
+    }
+    
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
@@ -58,8 +99,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 className='eachButton'
                 onClick={this.props.clearToken}
                 id="navLog"
-                // style={{ marginLeft: "90vw"}}
-                
                 size='large'
                 >Logout
                     {/* <Link to="/">Logout</Link>
@@ -72,30 +111,38 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         )
     }
 
+    domRoutes = () => {
+        return(
+            <Switch>
+                <Route exact path="/"/>
+                <Route exact path="/Admin"/>
+                <Route exact path="/Profile"/>
+            </Switch>
+        )
+    }
+
     render() {
     return (
-        
+        <HashRouter>
             <Navbar id="Navbar" light expand="md" >
-                <NavbarBrand id="NavbarBrand" href="/">
-                    
-                    <img id="brandlogohome" src={logoPic}/>
-                    
+                <NavbarBrand id="NavbarBrand" >
+                        {this.viewFeed()}
                 </NavbarBrand>
                     <Nav id='navButtons' navbar>
-                            <Button className='eachButton' size='large'>
-                                Profile
+                        {this.adminValidation()}
+                        {this.viewProfile()}    
+                        <Bored />        
+                        <Tooltip title='Jeopardy'>
+                            <Button className='eachButton' shape="circle" size='large'>
+                            J
                             </Button>
-                            <Bored />
-                            <Tooltip title='Jeopardy'>
-                                <Button className='eachButton' shape="circle" size='large'>
-                                J
-                                </Button>
-                            </Tooltip>
-                            <Litecoin />
-                            {this.logoutBtn()}
-                    </Nav>
+                        </Tooltip>    
+                        <Litecoin />    
+                        {this.logoutBtn()}
+                    </Nav> 
+                    {this.domRoutes()}   
             </Navbar>
-        
+        </HashRouter>
     )
     }
 }

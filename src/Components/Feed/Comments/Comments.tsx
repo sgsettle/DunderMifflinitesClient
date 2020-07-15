@@ -118,10 +118,6 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
         })
     }
 
-    // submitComment = (event: any) => {
-
-    // }
-
     render() {
         return(
             <div>
@@ -131,7 +127,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                     </Button>
                 </Tooltip>
 
-                {this.state.dataTable.map((comments: any, index) => (
+                {this.state.dataTable.map((feed: any, index) => (
                     <div key={index}>
                     <Dialog
                     className='mainCommentD'
@@ -146,15 +142,15 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                                 <th>Comment:</th>
                             </tr>
                             <tr>
-                                <td id='tUname'>{comments.username}</td>
-                                <td id='tComment'>{comments.comment}</td>
+                                <td id='tUname'>{feed.comment.username}</td>
+                                <td id='tComment'>{feed.comment.comment}</td>
                                 <td id='tButton'>
                                     <Tooltip title='Edit Comment'>
                                         <Button shape='circle' icon={ <EditOutlined />} />
                                     </Tooltip>
                                     /
                                     <Tooltip title='Delete Comment'>
-                                        <Button shape='circle' icon={ <DeleteOutlined />} onClick={this.deleteComment}/>
+                                        <Button shape='circle' icon={ <DeleteOutlined/> } onClick={this.deleteComment}/>
                                     </Tooltip>
                                 </td>
                             </tr>
