@@ -10,9 +10,9 @@ import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
 
 type acceptedProps = {
     setUsername: string | any;
-    setImage: string | any;
-    setText: string | any;
-    setLink: string | any;
+    // setImage: string | any;
+    // setText: string | any;
+    // setLink: string | any;
     token: any;
     setComments: any;
 }
@@ -22,7 +22,7 @@ type valueTypes = {
     image: string;
     text: string;
     link: string; 
-    dataTable: [];
+    pFeedData: [];
     token: string;
 }
 
@@ -34,32 +34,14 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
             image: '',
             text: '',
             link: '',
-            dataTable: [],
+            pFeedData: [],
             token: '',
         }
     }
 
-    fetchUsers = (user: any) => {
-        fetch(`http://localhost:3000/user/`, {
-            method: "GET",
-            headers: {
-                "Content-type":"application/json"
-            }
-        })
-        .then((res) => res.json())
-        .then((userData) => {
-            console.log("User data", userData);
-            this.setState({
-               dataTable: userData.user
-            })
-            console.log("USERSDATA", this.state.dataTable)
-        })
-    }
-
-
     fetchFeeds = () => {
         console.log('Fetching a post by ' + this.state.username);
-        fetch('http://localhost:3000/feed', {
+        fetch(`http://localhost:3000/feed/${this.props.setUsername}`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -69,10 +51,11 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
         .then((response) => response.json())
         .then((userData)=> {
             console.log("feed data ", userData);
+            console.log("checking if right ", userData.feed);
             this.setState({
-                dataTable: userData.feed.userName
+                pFeedData: userData.feed
             })
-            console.log("FEEDS", this.state.dataTable)
+            console.log("FEEDS", this.state.pFeedData)
         })
     }
 
@@ -84,35 +67,35 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
         }).then(() => this.fetchFeeds())
     }
 
+
     //PROSPECTIVE TURNARY FOR POST DISPLAY
 
-    feedMapper = () => {
-        return this.state.dataTable.map((feeds: any, index) => {
-            const { Meta } = Card;
-            return(
-                //call mapper and use jsx to display
-                <Card
-                    key={index}
-                    id='postCard'
-                    hoverable
-                    cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feeds.image} />}
-                >
-                    <p id='cardUname'>{feeds.userName}</p>
-                    <p id='cardText'>{feeds.text}</p>
-                    <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
-                    <IconButton  style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Delete'>
-                        <DeleteOutlineTwoToneIcon onClick={() => {
-                            this.deleteFeed(feeds)}} /> 
-                    </IconButton>
+    // feedMapper = () => {
+    //     return this.state.dataTable.map((feeds: any, index) => {
+    //         const { Meta } = Card;
+    //         return(
+    //             //call mapper and use jsx to display
+    //             <Card
+    //                 key={index}
+    //                 id='postCard'
+    //                 hoverable
+    //                 cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feeds.image} />}
+    //             >
+    //                 <p id='cardUname'>{feeds.userName}</p>
+    //                 <p id='cardText'>{feeds.text}</p>
+    //                 <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
+    //                 <IconButton  style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Delete'>
+    //                     <DeleteOutlineTwoToneIcon onClick={() => {
+    //                         this.deleteFeed(feeds)}} /> 
+    //                 </IconButton>
                    
-                </Card>
-            )
-        })
-    }
+    //             </Card>
+    //         )
+    //     })
+    // }
 
     componentDidMount(){
         this.fetchFeeds();
-        this.fetchUsers(this.state.dataTable);
     }
 
     render() {
@@ -120,7 +103,28 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
             <div id='feedDiv'>
                 <CreatePost setUsername={this.state.username} setImage={this.state.image} setText={this.state.text} setLink={this.state.link} fetchUsers={this.fetchFeeds} token={this.props.token} />
                 <Container id='profileFeedContainer'>
-                    {this.feedMapper()}
+                    <div>
+                    {/* {this.feedMapper()} */}
+                    {this.state.pFeedData.map((feed: any, index) => (
+                        <div key={index}>
+                        <Card
+                        key={index}
+                        id='postCard'
+                        hoverable
+                        cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feed.image} />}
+                    >
+                        <p id='cardUname'>{feed.userName}</p>
+                        <p id='cardText'>{feed.text}</p>
+                        <p id='cardlink'><a target='blank'>{feed.link}</a></p>
+                        <IconButton  style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Delete'>
+                            <DeleteOutlineTwoToneIcon onClick={() => {
+                                this.deleteFeed(feed)}} /> 
+                        </IconButton>
+                       
+                    </Card>
+                    </div>
+                    ))}
+                    </div>
                 </Container>
             </div>    
         )
