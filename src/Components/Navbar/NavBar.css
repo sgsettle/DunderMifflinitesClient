@@ -1,14 +1,18 @@
-#AppBar {
+#NavBarBase {
     background-color: rgb(6, 45, 123);
     height: 75px;
     color: white;
+    display: flex;
+    flex: row;
+    overflow: hidden;
+    align-items: flex-start;
 }
 
 #brandlogohome {
     float: left;
-    margin-left: 1%;
+    margin-left: 0;
     background-color: white;
-    margin-top: .75%;
+    margin-top: 2%;
     width: 20%;
     height: 85%;
 }
