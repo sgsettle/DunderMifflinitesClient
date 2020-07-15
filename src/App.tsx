@@ -111,7 +111,6 @@ render() {
       <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews} protectedViewsTwo={this.protectedViewTwo} protectedViewsThree={this.protectedViewThree}/> 
       
       </Router>
-      {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )
 
