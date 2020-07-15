@@ -9,9 +9,6 @@ import './Admin.css';
 
 type acceptedProps = {
     setUserName: string | any;
-    // setImage: string | any;
-    // setText: string | any;
-    // setLink: string | any;
     token: any;
 }
 
@@ -23,7 +20,7 @@ type valueTypes = {
     dataTable: []
 }
 
-export default class AdminIndex extends React.Component<acceptedProps, valueTypes> {
+export default class extends React.Component<acceptedProps, valueTypes> {
     constructor(props: acceptedProps) {
         super(props);
         this.state = {
@@ -60,8 +57,6 @@ export default class AdminIndex extends React.Component<acceptedProps, valueType
 
         }).then(() => this.fetchUsers())
     }
-
-    //PROSPECTIVE TERNARY FOR POST DISPLAY
 
     userMapper = () => {
         return this.state.dataTable.map((users: any, index) => {

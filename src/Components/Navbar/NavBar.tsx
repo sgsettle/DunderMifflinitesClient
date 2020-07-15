@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
 import Bored from './BoredAPI_Kate';
-
 import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
 import AppBar from "@material-ui/core/AppBar";
@@ -122,33 +121,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
 
     render() {
     return (
-        
-            <Navbar id="Navbar" light expand="md" >
-                <NavbarBrand id="NavbarBrand" href="/">
-                    
-                    <img id="brandlogohome" src={logoPic}/>
-                    
-                </NavbarBrand>
-                    <Nav id='navButtons' navbar>
-                            {/* {this.viewAdmin()} */}
-                            <Button className='eachButton' size='large'>
-                                Profile
-                            </Button>
-                            <Tooltip title='Bored?'>
-                                <Button className='eachButton' shape="circle" size="large">
-                                B
-                                </Button>
-                            </Tooltip>
-                            <Tooltip title='Jeopardy'>
-                                <Button className='eachButton' shape="circle" size='large'>
-                                J
-                                </Button>
-                            </Tooltip>
-                                <Litecoin />
-                            {this.logoutBtn()}
-                    </Nav>
-            </Navbar>
-       
         <div className="classes.root">
             {this.logoutBtn()}
             <Switch>

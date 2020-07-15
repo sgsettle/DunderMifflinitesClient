@@ -99,7 +99,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
                         <p id='cardText'>{feeds.text}</p>
                         <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
                         
-                        <Comments setUsername={this.props.setUsername} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
+                        <Comments setUsername={this.props.setUserName} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
                         
                     </Card>
                     
