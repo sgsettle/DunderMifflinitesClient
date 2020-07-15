@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
 import { render } from '@testing-library/react';
+import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
 import Profile from './Components/UserProfile/ProfileIndex'
