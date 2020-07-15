@@ -12,10 +12,10 @@ You will need to have all associated installations or run $npm update in your te
 Screenshots of each page section are as follows:
 
 Initial Auth Page:
-![](AuthScreenshot.png)
+![](DunderMifflinitesClient\src\Assets\AuthScreenshot.png)
 
 Home/Main User Feed:
-![](FeedScreenshot.png)
+![](DunderMifflinitesClient\src\Assets\FeedScreenshot.png)
 
 User Profile:
 ![]()
