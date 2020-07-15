@@ -5,10 +5,6 @@ import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
 import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-<<<<<<< HEAD
-=======
-import UserProfile from './Components/UserProfile/ProfileIndex';
->>>>>>> 96e8f64cfc694ef17aa02925c50389480e990d1a
 import Admin from './Components/Admin/Admin';
 
 type acceptedProps = {
@@ -96,14 +92,10 @@ updateUsername = (newUsername: string) => {
 
   protectedViewThree = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-<<<<<<< HEAD
-        <Admin token={this.updateToken} setUserName={this.updateUsername} />
-=======
         <Admin 
         token={this.updateToken}
         setUserName={this.updateUsername}
         />
->>>>>>> 96e8f64cfc694ef17aa02925c50389480e990d1a
     ) : (
       <Auth
       token={this.updateToken}
