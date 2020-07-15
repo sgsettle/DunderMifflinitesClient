@@ -6,10 +6,10 @@ body {
     /* font-family: "ITC American Typewriter"; */
 }
 
-@font-face {
-    font-family: "ITC American Typewriter"; 
+/* @font-face {
+     
     src: url('../../Assets/ITC-American-Typewriter-Medium.otf'); 
-}
+} */
 
 .mainProfileDiv {
     background-image: url('../../Assets/michaelOffice.jpg');
@@ -44,6 +44,7 @@ body {
 h3 {
     font-size: 23px;
     font-weight: 550;
+    font-family: "ITC American Typewriter";
 }
 
 p {
