@@ -14,6 +14,7 @@ type acceptedProps = {
     setText: string | any;
     setLink: string | any;
     token: any;
+    setComments: any;
 }
 
 type valueTypes = {
@@ -21,7 +22,8 @@ type valueTypes = {
     image: string;
     text: string;
     link: string; 
-    dataTable: []
+    dataTable: [];
+    token: string;
 }
 
 export default class ProfileFeed extends React.Component<acceptedProps, valueTypes> {
@@ -32,7 +34,8 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
             image: '',
             text: '',
             link: '',
-            dataTable: []
+            dataTable: [],
+            token: '',
         }
     }
 

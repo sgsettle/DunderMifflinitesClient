@@ -10,6 +10,8 @@ import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
 
 type acceptedProps = {
+  setUsername: any;
+  setComments: any;
   token: any;
 };
 
