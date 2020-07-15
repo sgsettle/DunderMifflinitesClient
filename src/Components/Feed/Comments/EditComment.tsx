@@ -59,7 +59,7 @@ export default class editComment extends React.Component<acceptedProps, valueTyp
             open: false,
         })
     }
-    
+       
     render() {
         return (
             <div>
