@@ -11,6 +11,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
 
 type acceptedProps = {
+  setComments: any;
   token: any;
   setUsername: any;
 };
@@ -127,7 +128,7 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
           </Container>
         </div>
         <div className="profileFeedDiv">
-            <ProfileFeed token={this.props.token} setUsername={this.props.setUsername} />
+            <ProfileFeed token={this.props.token} setUsername={this.props.setUsername} setComments={this.props.setComments} />
         </div>        
       </div>
     );
@@ -165,3 +166,4 @@ export default ProfileIndex;
   </TableBody>
 </Table>
 </TableContainer> */}
+

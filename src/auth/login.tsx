@@ -7,7 +7,9 @@ import Button from '@material-ui/core/Button';
 import './login.css';
 import {Form, FormGroup, Input, Label} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper'
+import Paper from '@material-ui/core/Paper';
+import './login.css';
+import './auth.css';
 
 type valueTypes = {
     userName: string,
@@ -52,21 +54,20 @@ class Login extends React.Component<acceptedProps, valueTypes> {
     };
 render() {
     return (
-    <div id="loginDiv">
-        <h1 style={{textAlign:"center"}}>Login</h1>
-        <Form onSubmit={this.handleSubmit}>
+    <div id='loginDiv'>
+        <h1 id="loginHeading">Login</h1>
+        <Form className="loginForm" onSubmit={this.handleSubmit}>
             <FormGroup>
-                <Label htmlFor="username">Username  </Label>
-                <Input className="loginInput" onChange={(e) => this.setState({userName: e.target.value})} 
-                name="username" type='text'/>{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
+                <Label id='loginLabel' htmlFor="username">Username:  </Label>
+                <Input id='loginInput' onChange={(e) => this.setState({userName: e.target.value})} 
+                name="username" type='text'/>
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="password">Password  </Label>
-                <Input className="loginInput" onChange={(e) => this.setState({password: e.target.value})} 
+                <Label id='loginLabel' htmlFor="password">Password:  </Label>
+                <Input id='loginInput' onChange={(e) => this.setState({password: e.target.value})} 
                 name="password" type='password'/>
             </FormGroup>
-            <br />
-            <Button type="submit" variant="contained" color="primary">Login</Button>
+            <Button type="submit" variant="contained" color="primary" id="loginBtn">Log in</Button>
         </Form>
     </div>
     )

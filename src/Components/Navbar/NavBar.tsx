@@ -1,36 +1,29 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
-
-import {
-    Navbar, 
-    NavbarBrand,
-    Nav,
-    NavItem
-} from 'reactstrap';
-import {
-    Route,
-    Link,
-    Switch
-} from 'react-router-dom';
-import { Button, Tooltip } from 'antd';
+import Jeopardy from './JeopardyAPI/Jeopardy';
+import Bored from './BoredAPI/BoredAPI_Kate';
+import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
-
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+// import Button from "@material-ui/core/Button";
 import './NavBar.css';
-import ProfileIndex from '../UserProfile/ProfileIndex';
-import FeedIndex from '../Feed/FeedIndex';
+import LiteCoin from './Brad';
 
-
+type acceptedProps = {
+    clearToken: any,
+    protectedViews: any,
+    protectedViewsTwo: any,
+    protectedViewsThree: any
+}
 
 type valueTypes = {
     token: any,
     setToken: string | any,
     userName: string | any,
     setUserName: string | any,
-}
-
-type acceptedProps = {
-    clearToken: any
+    userRole: string | any,
 }
 
 export default class SiteBar extends React.Component<acceptedProps, valueTypes> {
@@ -40,76 +33,109 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             token: "",
             setToken: "",
             userName: "",
-            setUserName: ""
+            setUserName: "",
+            userRole: "",
         };
     }
 
+    //path to home/feed    
+    viewFeed = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Link to='/'>
+                <img id="brandlogohome" src={logoPic}/>
+            </Link>
+        )
+    } 
 
+    //path to user profile
+    viewProfile = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button style={{width: '100px'}} size='large'>
+                <Link to='/Profile'>Profile</Link>
+            </Button>
+        )
+
+    }
+  
+    //path to admin page 
+    adminPage = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button style={{width: '100px'}} size='large'>
+                <Link to="/Admin">Admin</Link>
+            </Button>
+        )
+    }
+
+    //user role authorization for admin button
+    adminValidation = () => {
+        return localStorage.getItem('userRole') === 'admin' ? (
+            <Button>
+                {this.adminPage()}
+            </Button>
+        ) : (
+            ""
+        )
+    }
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
         (
             ""
         ) : (
-            <Button
-                className='eachButton'
+            <AppBar position="static">
+                <Toolbar className="classes.color">
+                    {this.viewFeed()}
+                </Toolbar>
+                {this.viewProfile()}
+                {this.adminValidation()}
+                <Bored />
+                <Jeopardy />
+                <Litecoin />
+                {/* if you want to do dropdown put it  here */}
+                <Button
+                style={{width: '100px'}}
                 onClick={this.props.clearToken}
                 id="navLog"
-                // style={{ marginLeft: "90vw"}}
-                
                 size='large'
                 >Logout
-                    {/* <Link to="/">Logout</Link>
-                    <Switch>
-                         <Route exact path="/"><App/></Route>
-                    </Switch> */}
             </Button>
+            </AppBar>
 
                 
         )
     }
 
+    // domRoutes = () => {
+    //     return(
+    //         <Switch>
+    //             <Route exact path="/">{this.props.protectedViews()}</Route>
+    //             <Route exact path="/Admin"/>
+    //     <Route exact path="/Profile">{this.props.protectedViewsTwo()}</Route>
+    //         </Switch>
+    //     )
+    // }
+
     render() {
     return (
-        <Navbar id="Navbar" light expand="md" >
-            <NavbarBrand id="NavbarBrand" href="/">
-                <img id="brandlogohome"src={logoPic}></img>
-            </NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        {/* {this.navBar()} */}
-                    </NavItem>
-                    <NavItem>
-                        {this.logoutBtn()}
-                    </NavItem>
-                </Nav>
-        </Navbar>
-        
-    //         <Navbar id="Navbar" light expand="md" >
-    //             <NavbarBrand id="NavbarBrand" href="/">
-                    
-    //                 <img id="brandlogohome" src={logoPic}/>
-                    
-    //             </NavbarBrand>
-    //                 <Nav id='navButtons' navbar>
-    //                         <Button className='eachButton' size='large'>
-    //                             Profile
-    //                         </Button>
-    //                         <Tooltip title='Bored?'>
-    //                             <Button className='eachButton' shape="circle" size="large">
-    //                             B
-    //                             </Button>
-    //                         </Tooltip>
-    //                         <Tooltip title='Jeopardy'>
-    //                             <Button className='eachButton' shape="circle" size='large'>
-    //                             J
-    //                             </Button>
-    //                         </Tooltip>
-    //                             <Litecoin />
-    //                         {this.logoutBtn()}
-    //                 </Nav>
-    //         </Navbar>
-        
+        <div className="classes.root">
+            {this.logoutBtn()}
+            <Switch>
+                <Route exact path="/">
+                    {this.props.protectedViews()}
+                </Route>
+                <Route exact path="/Admin">
+                    {this.props.protectedViewsThree()}
+                </Route>
+                <Route exact path="/Profile">
+                    {this.props.protectedViewsTwo()}
+                </Route>
+            </Switch>
+        </div>
     )
-    }
-}
+    }}

@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
 import Auth from './auth/auth';
-import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
-import { render } from '@testing-library/react';
-import ProfileIndex from './Components/UserProfile/ProfileIndex'
+import { HashRouter as Router } from "react-router-dom";
 import SiteBar from './Components/Navbar/NavBar';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-//import {BrowserRouter as Router} from 'react-router-dom';
+import UserProfile from './Components/UserProfile/ProfileIndex';
+import Admin from './Components/Admin/Admin';
 
-
-
-type valueTypes = {
-  setUserName: string | any,
-  setToken: string | any,
-}
 type acceptedProps = {
   updateToken: any,
   updateUserName: any,
-  clearToken: any
+  clearToken: any,
+  setComments: any,
+  setUsername: any,
+  token: any,
+}
+type valueTypes = {
+  setUserName: string | any,
+  setToken: string | any,
+  setComments: any
 }
 
 class App extends React.Component<{}, valueTypes> {
@@ -27,7 +26,8 @@ class App extends React.Component<{}, valueTypes> {
     super(props);
     this.state = {
       setUserName: "",
-      setToken: ""
+      setToken: "",
+      setComments: '',
     };
   }
 
@@ -65,8 +65,8 @@ updateUsername = (newUsername: string) => {
 
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
-      <ProfileIndex
-      token={this.state.setToken} /> 
+      <FeedIndex
+      token={this.state.setToken} setUserName={this.updateUsername} setComments={this.state.setComments}/> 
       ) : (
      <Auth
       token={this.updateToken}
@@ -76,18 +76,46 @@ updateUsername = (newUsername: string) => {
      )
   };
 
+  protectedViewTwo = () => {
+    return this.state.setToken === localStorage.getItem("token") ? (
+      <UserProfile 
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
+    ) : (
+      <Auth
+      token={this.updateToken}
+      updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
+      />
+    )
+  }
+
+  protectedViewThree = () => {
+    return this.state.setToken === localStorage.getItem("token") ? (
+        <Admin 
+        token={this.updateToken}
+        setUserName={this.updateUsername}
+        />
+    ) : (
+      <Auth
+      token={this.updateToken}
+      updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
+      />
+    )
+  }
+
 render() {
   return (
     <div className="App">
       <Router>
-      <SiteBar clearToken={this.clearToken}/> 
-      {this.protectedViews()}
-      {/* <UserProfile token={"token thing"} /> */}
+
+      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews}
+       protectedViewsTwo={this.protectedViewTwo} 
+       protectedViewsThree={this.protectedViewThree}/> 
+      
       </Router>
-      {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )
-
   }
 };
 

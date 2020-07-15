@@ -68,7 +68,7 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
         <Modal
             title='Litecoin Quote'
             visible={this.state.visible}
-            onOk={this.componentDidMount}
+            onOk={this.handleCancel}
             onCancel={this.handleCancel}
             >
               <div id="coinModal">
@@ -78,15 +78,6 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
             </div>
         </Modal>
       </div>
-
-    //   <div className='LiteCoin'>
-    //     <div className='coinDiv'>
-    //     <button onClick={(e) => {this.componentDidMount()}}>LiteCoin</button>
-    //     <h3>base: {this.state.base}</h3>
-    //     <h3>target: {this.state.target}</h3>
-    //     <h3>price: {this.state.price} </h3>
-    //     </div>
-    //   </div>
     )
   }
 };
