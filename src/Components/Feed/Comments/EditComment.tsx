@@ -69,7 +69,7 @@ export default class editComment extends React.Component<acceptedProps, valueTyp
 
                 <Modal
                 title='Edit Your Comment:'
-                visible={true}
+                visible={true} 
                 onOk={this.updateComment}
                 onCancel={this.isClosed}
                 aria-labelledby="simple-modal-title"
