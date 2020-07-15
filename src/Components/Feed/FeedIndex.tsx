@@ -1,17 +1,20 @@
 import React from 'react';
 import './Feed.css';
 import CreatePost from './CreatePost';
+import Comments from './Comments/Comments';
 import Footer from '../Footer/Footer';
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
-//import IconButton from '@material-ui/core/IconButton';
-import DeleteTwoToneIcon from '@material-ui/icons/';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
+import { stringify } from 'querystring';
 
 type acceptedProps = {
     setUserName: string | any;
     // setImage: string | any;
     // setText: string | any;
     // setLink: string | any;
+    setComments: any;
     token: any;
 }
 
@@ -20,6 +23,7 @@ type valueTypes = {
     image: string;
     text: string;
     link: string; 
+    comment: string;
     dataTable: []
 }
 
@@ -31,10 +35,11 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
             image: '',
             text: '',
             link: '',
+            comment: '',
             dataTable: []
         }
     }
-
+    //GET FOR ALL USER INFO
     fetchUsers = (user: any) => {
         fetch(`http://localhost:3000/user/`, {
             method: "GET",
@@ -54,7 +59,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
 
 
     fetchFeeds = () => {
-        console.log('Fetching a post by ' + this.state.username);
+        console.log('Fetching all feed posts.')
         fetch('http://localhost:3000/feed', {
             method: 'GET',
             headers: {
@@ -64,38 +69,41 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
         })
         .then((response) => response.json())
         .then((userData)=> {
-            console.log("feed data ", userData);
+            console.log("Feed Data:", userData);
             this.setState({
                 dataTable: userData.feed
             })
-            console.log("FEEDS", this.state.dataTable)
+            console.log("FEEDS:", this.state.dataTable)
         })
     }
 
-    // deleteFeed = ( feed: any) => {
-    //     fetch(`http://localhost:3000/feed/${feed.id}`, {
-    //         method: 'DELETE',
-    //         headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
+    deleteFeed = ( feed: any) => {
+        fetch(`http://localhost:3000/feed/${feed.id}`, {
+            method: 'DELETE',
+            headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
 
-    //     }).then(() => this.fetchFeeds())
-    // }
-
-    //PROSPECTIVE TURNARY FOR POST DISPLAY
+        }).then(() => this.fetchFeeds())
+    }
 
     feedMapper = () => {
         return this.state.dataTable.map((feeds: any, index) => {
             return(
-                //call mapper and use jsx to display
-                <Card
-                    key={index}
-                    id='postCard'
-                    hoverable
-                    cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feeds.image} />}
-                >
-                    <p id='cardUname'>{feeds.userName}</p>
-                    <p id='cardText'>{feeds.text}</p>
-                    <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
-                </Card>
+                <div>
+                    <Card
+                        key={index}
+                        id='postCard'
+                        hoverable
+                        cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feeds.image} />}
+                    >
+                        <p id='cardUname'>{feeds.userName}</p>
+                        <p id='cardText'>{feeds.text}</p>
+                        <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
+                        
+                        <Comments setUsername={this.props.setUsername} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
+                        
+                    </Card>
+                    
+                </div>
             )
         })
     }

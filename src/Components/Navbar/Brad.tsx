@@ -68,7 +68,7 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
         <Modal
             title='Litecoin Quote'
             visible={this.state.visible}
-            onOk={this.componentDidMount}
+            onOk={this.handleCancel}
             onCancel={this.handleCancel}
             >
               <div id="coinModal">

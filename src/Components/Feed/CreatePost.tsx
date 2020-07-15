@@ -70,7 +70,7 @@ export default class CreatePost extends React.Component<acceptedProps, valueType
     body = (
         <div id='PostCreateDiv'>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit} >
-                <h2 id='createUname'>{localStorage.getItem("username")}'s Post</h2>
+                <h2 id='createUname'>Post It:</h2>
                 <TextField 
                 className='createField'
                 id="standard-basic" 
@@ -86,7 +86,8 @@ export default class CreatePost extends React.Component<acceptedProps, valueType
                 <TextField
                 className='createField'
                 id="standard-basic"
-                label=""
+                label="Thoughts, Statements, Decalarations:"
+                helperText="Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way. -Michael Scott"
                 defaultValue=""
                 multiline
                 onChange={(e)=> this.setState({

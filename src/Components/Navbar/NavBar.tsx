@@ -1,18 +1,22 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
+import Bored from './BoredAPI_Kate';
 
-import {
-    Navbar, 
-    NavbarBrand,
-    Nav
-} from 'reactstrap';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+// import Button from "@material-ui/core/Button";
 import './NavBar.css';
 import LiteCoin from './Brad';
 
-
+type acceptedProps = {
+    clearToken: any,
+    protectedViews: any,
+    protectedViewsTwo: any,
+    protectedViewsThree: any
+}
 
 type valueTypes = {
     token: any,
@@ -20,10 +24,6 @@ type valueTypes = {
     userName: string | any,
     setUserName: string | any,
     userRole: string | any,
-}
-
-type acceptedProps = {
-    clearToken: any
 }
 
 export default class SiteBar extends React.Component<acceptedProps, valueTypes> {
@@ -38,43 +38,87 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
-    // viewFeed = () => {
-    //     <Link to='/feed'/>
-    // } 
+    //path to home/feed    
+    viewFeed = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Link to='/'>
+                <img id="brandlogohome" src={logoPic}/>
+            </Link>
+        )
+    } 
 
-    // viewProfile = () => {
+    //path to user profile
+    viewProfile = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button className='eachButton' size='small'>
+                <Link to='/Profile'>Profile</Link>
+            </Button>
+        )
 
-    // }
+    }
   
-    // viewAdmin = () => {
-    //     return this.props.userRole === 'admin' ? 
-    //     <Link to="./admin" id="link">
-    //         <Button>Admin</Button>
-    //     </Link>
-    //     : null
-    //  }
+    //path to admin page 
+    adminPage = () => {
+        return localStorage.getItem('token') === null ? (
+            ""
+        ) : (
+            <Button>
+                <Link to="/Admin">Admin</Link>
+            </Button>
+        )
+    }
 
+    //user role authorization for admin button
+    adminValidation = () => {
+        return localStorage.getItem('userRole') === 'admin' ? (
+            <Button>
+                {this.adminPage()}
+            </Button>
+        ) : (
+            ""
+        )
+    }
 
     logoutBtn() {
         return localStorage.getItem("token") === null ?
         (
             ""
         ) : (
-            <Button
+            <AppBar position="static">
+                <Toolbar className="classes.color">
+                    {this.viewFeed()}
+                </Toolbar>
+                {this.viewProfile()}
+                {this.adminValidation()}
+                <Bored />
+                <Litecoin />
+                {/* if you want to do dropdown put it  here */}
+                <Button
                 className='eachButton'
                 onClick={this.props.clearToken}
                 id="navLog"
                 size='large'
                 >Logout
-                    {/* <Link to="/">Logout</Link>
-                    <Switch>
-                         <Route exact path="/"><App/></Route>
-                    </Switch> */}
             </Button>
+            </AppBar>
 
                 
         )
     }
+
+    // domRoutes = () => {
+    //     return(
+    //         <Switch>
+    //             <Route exact path="/">{this.props.protectedViews()}</Route>
+    //             <Route exact path="/Admin"/>
+    //     <Route exact path="/Profile">{this.props.protectedViewsTwo()}</Route>
+    //         </Switch>
+    //     )
+    // }
 
     render() {
     return (
@@ -104,6 +148,20 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                             {this.logoutBtn()}
                     </Nav>
             </Navbar>
-        
+       
+        <div className="classes.root">
+            {this.logoutBtn()}
+            <Switch>
+                <Route exact path="/">
+                    {this.props.protectedViews()}
+                </Route>
+                <Route exact path="/Admin">
+                    {this.props.protectedViewsThree()}
+                </Route>
+                <Route exact path="/Profile">
+                    {this.props.protectedViewsTwo()}
+                </Route>
+            </Switch>
+        </div>
     )
     }}
