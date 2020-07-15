@@ -3,9 +3,11 @@ import './App.css';
 import Auth from './auth/auth';
 import Button from '@material-ui/core/Button';
 import FeedIndex from './Components/Feed/FeedIndex';
+import { HashRouter as Router } from "react-router-dom";
 import { render } from '@testing-library/react';
 import SiteBar from './Components/Navbar/NavBar';
 import './App.css';
+import Profile from './Components/UserProfile/ProfileIndex'
 //import {BrowserRouter as Router} from 'react-router-dom';
 
 
@@ -77,11 +79,38 @@ updateUsername = (newUsername: string) => {
      )
   };
 
+  protectedViewTwo = () => {
+    return this.state.setToken === localStorage.getItem("token") ? (
+      <Profile />
+    ) : (
+      <Auth
+      token={this.updateToken}
+      updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
+      />
+    )
+  }
+
+  protectedViewThree = () => {
+    return this.state.setToken === localStorage.getItem("token") ? (
+        "<Admin />"
+    ) : (
+      <Auth
+      token={this.updateToken}
+      updateUserName={this.updateUsername}
+      setUsername={this.updateUsername}
+      />
+    )
+  }
+
 render() {
   return (
     <div className="App">
-      <SiteBar clearToken={this.clearToken}/> 
-      {this.protectedViews()}
+      <Router>
+
+      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews} protectedViewsTwo={this.protectedViewTwo} protectedViewsThree={this.protectedViewThree}/> 
+      
+      </Router>
       {/* router DOM will go here navbar/sitebar/*/}
     </div>
   )

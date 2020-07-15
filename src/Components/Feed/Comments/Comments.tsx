@@ -5,11 +5,13 @@ import  Tooltip  from '@material-ui/core/Tooltip';
 import  Dialog  from '@material-ui/core/Dialog';
 import { Button, Input } from 'antd';
 import { CommentOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import Table from 'reactstrap'
 
 type acceptedProps = {
     setUsername: string;
     setComments: string;
     token: any
+    fetchUsers: any
 }
 
 type valueTypes = {
@@ -17,6 +19,7 @@ type valueTypes = {
     comment: string;
     dataTable: [];
     open: boolean;
+    commentData: []
 }
 
 export default class Comments extends React.Component< acceptedProps, valueTypes > {
@@ -26,27 +29,28 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
             username: '',
             comment: '',
             dataTable: [],
+            commentData: [],
             open: false,
         }
     }
 
     //fetch user data for username and array
-    fetchUsers = (user: any) => {
-        fetch(`http://localhost:3000/user/`, {
-            method: "GET",
-            headers: {
-                "Content-type":"application/json"
-            }
-        })
-        .then((res) => res.json())
-        .then((userData) => {
-            console.log("User data", userData);
-            this.setState({
-               dataTable: userData.user
-            })
-            console.log("USERSDATA", this.state.dataTable)
-        })
-    }
+    // fetchUsers = (user: any) => {
+    //     fetch(`http://localhost:3000/user/`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-type":"application/json"
+    //         }
+    //     })
+    //     .then((res) => res.json())
+    //     .then((userData) => {
+    //         console.log("User data", userData);
+    //         this.setState({
+    //            dataTable: userData.user
+    //         })
+    //         console.log("USERSDATA", this.state.dataTable)
+    //     })
+    // }
 
     //GET ALL COMMENTS, FETCH COMMENT DATA
     fetchComments = () => {
@@ -62,9 +66,9 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
         .then((commentData) => {
             console.log("Comment data", commentData);
             this.setState({
-               dataTable: commentData.comments
+              commentData: commentData.comments
             })
-            console.log("COMMENTS", this.state.dataTable)
+            // console.log("COMMENTS", this.state.commentData)
         })
     }
     //CREATE A COMMENT
@@ -82,11 +86,9 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                 this.setState({username: this.state.username});
                 this.setState({comment: this.state.comment});
                 console.log("COMMENTS TEST ->", data);
+                this.fetchComments();
             })
     }
-
-    //EDIT A COMMENT
-
 
     //DELETE A COMMENT
     deleteComment = ( comment: any ) => {
@@ -96,15 +98,32 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
         }).then(() => this.fetchComments())
     }
 
-    // commentMapper = () => {
-    //     return this.state.dataTable.map((comment: any, index) => {
-    //         return(
-    //             <div>
+    commentMapper = () => {
+        return this.state.commentData.map((comment: any, index) => {
+            return(
+                <>
+
+                <tr key={index}>
+                    <td>{comment.userName}</td>
+                    <td>{comment.comment}</td>
+                    <td>
+                        {/* <Tooltip title='Edit Comment'>
+                            <Button shape='circle' icon={ <EditOutlined />} />
+                        </Tooltip> */}
+                                    
+                        <Tooltip title='Delete Comment'>
+                            <Button shape='circle' icon={ <DeleteOutlined/> } onClick={() => {
+                                this.deleteComment(comment);
+                            }}/>
+                        </Tooltip>
+                    </td>
                     
-    //             </div>
-    //         )
-    //     })
-    // }
+                </tr>
+                
+                </>
+            )
+        })
+    }
 
     openDialog = () => {
         this.setState({
@@ -118,6 +137,11 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
         })
     }
 
+    componentDidMount(){
+        this.fetchComments()
+        // this.props.fetchUsers()
+    }
+
     render() {
         return(
             <div>
@@ -126,9 +150,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                         <CommentOutlined />
                     </Button>
                 </Tooltip>
-
-                {this.state.dataTable.map((feed: any, index) => (
-                    <div key={index}>
+                    <div >
                     <Dialog
                     className='mainCommentD'
                     open={this.state.open}
@@ -136,24 +158,15 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                     aria-labelledby="customized-dialog-title"
                     >
                         <h3 id='commentTitle'>Comments:</h3>
-                        <table id='commentsTable'  >
-                            <tr>
-                                <th>User:</th>
-                                <th>Comment:</th>
-                            </tr>
-                            <tr>
-                                <td id='tUname'>{feed.comment.username}</td>
-                                <td id='tComment'>{feed.comment.comment}</td>
-                                <td id='tButton'>
-                                    <Tooltip title='Edit Comment'>
-                                        <Button shape='circle' icon={ <EditOutlined />} />
-                                    </Tooltip>
-                                    /
-                                    <Tooltip title='Delete Comment'>
-                                        <Button shape='circle' icon={ <DeleteOutlined/> } onClick={this.deleteComment}/>
-                                    </Tooltip>
-                                </td>
-                            </tr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>comments</th>
+                                    <th>update/delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>{this.commentMapper()}</tbody>
                         </table>
                         
                         <Input className='thisSection' style={{width: '85%', marginLeft: '7.5%'}} size='large' placeholder="I didn't say it. I declared it..." 
@@ -165,9 +178,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                             <Button className='thisSection' style={{width: '60px', marginLeft: '42.5%'}} type='primary' onClick={this.createComment}>Add</Button>
                         </Tooltip>
                     </Dialog>    
-
                 </div>
-                ))}
             </div>
         )
     }

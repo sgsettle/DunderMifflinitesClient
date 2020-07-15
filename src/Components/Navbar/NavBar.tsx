@@ -1,31 +1,27 @@
 import React from 'react';
-import { HashRouter, Route, NavLink, Switch } from 'react-router-dom';
-// import Feed from '../Feed/FeedIndex';
-// import Profile from '../UserProfile/ProfileIndex';
+import { Route, Link, Switch } from 'react-router-dom';
 import Litecoin from './Brad';
 import Bored from './BoredAPI_Kate';
 
-import {
-    Navbar, 
-    NavbarBrand,
-    Nav
-} from 'reactstrap';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 import logoPic from "../../Assets/theofficelogo.png";
-
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+// import Button from "@material-ui/core/Button";
 import './NavBar.css';
 
-
+type acceptedProps = {
+    clearToken: any,
+    protectedViews: any,
+    protectedViewsTwo: any,
+    protectedViewsThree: any
+}
 
 type valueTypes = {
     token: any,
     setToken: string | any,
     userName: string | any,
     setUserName: string | any,
-}
-
-type acceptedProps = {
-    clearToken: any
 }
 
 export default class SiteBar extends React.Component<acceptedProps, valueTypes> {
@@ -39,19 +35,14 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         };
     }
 
-    //path to auth/login page
-    // viewAdmin = () => {
-
-        // }
-
     //path to home/feed    
     viewFeed = () => {
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <NavLink to='/'>
+            <Link to='/'>
                 <img id="brandlogohome" src={logoPic}/>
-            </NavLink>
+            </Link>
         )
     } 
 
@@ -60,8 +51,8 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button className='eachButton' size='large'>
-                <NavLink to='/Profile'>Profile</NavLink>
+            <Button className='eachButton' size='small'>
+                <Link to='/Profile'>Profile</Link>
             </Button>
         )
 
@@ -73,7 +64,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
             ""
         ) : (
             <Button>
-                <NavLink to="/Admin">Admin</NavLink>
+                <Link to="/Admin">Admin</Link>
             </Button>
         )
     }
@@ -95,54 +86,54 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         (
             ""
         ) : (
-            <Button
+            <AppBar position="static">
+                <Toolbar className="classes.color">
+                    {this.viewFeed()}
+                </Toolbar>
+                {this.viewProfile()}
+                {this.adminValidation()}
+                <Bored />
+                <Litecoin />
+                {/* if you want to do dropdown put it  here */}
+                <Button
                 className='eachButton'
                 onClick={this.props.clearToken}
                 id="navLog"
                 size='large'
                 >Logout
-                    {/* <Link to="/">Logout</Link>
-                    <Switch>
-                         <Route exact path="/"><App/></Route>
-                    </Switch> */}
             </Button>
+            </AppBar>
 
                 
         )
     }
 
-    domRoutes = () => {
-        return(
-            <Switch>
-                <Route exact path="/"/>
-                <Route exact path="/Admin"/>
-                <Route exact path="/Profile"/>
-            </Switch>
-        )
-    }
+    // domRoutes = () => {
+    //     return(
+    //         <Switch>
+    //             <Route exact path="/">{this.props.protectedViews()}</Route>
+    //             <Route exact path="/Admin"/>
+    //     <Route exact path="/Profile">{this.props.protectedViewsTwo()}</Route>
+    //         </Switch>
+    //     )
+    // }
 
     render() {
     return (
-        <HashRouter>
-            <Navbar id="Navbar" light expand="md" >
-                <NavbarBrand id="NavbarBrand" >
-                        {this.viewFeed()}
-                </NavbarBrand>
-                    <Nav id='navButtons' navbar>
-                        {this.adminValidation()}
-                        {this.viewProfile()}    
-                        <Bored />        
-                        <Tooltip title='Jeopardy'>
-                            <Button className='eachButton' shape="circle" size='large'>
-                            J
-                            </Button>
-                        </Tooltip>    
-                        <Litecoin />    
-                        {this.logoutBtn()}
-                    </Nav> 
-                    {this.domRoutes()}   
-            </Navbar>
-        </HashRouter>
+        <div className="classes.root">
+            {this.logoutBtn()}
+            <Switch>
+                <Route exact path="/">
+                    {this.props.protectedViews()}
+                </Route>
+                <Route exact path="/Admin">
+                    {this.props.protectedViewsThree()}
+                </Route>
+                <Route exact path="/Profile">
+                    {this.props.protectedViewsTwo()}
+                </Route>
+            </Switch>
+        </div>
     )
     }
 }
