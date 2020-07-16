@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-import Litecoin from './Brad';
 import Jeopardy from './JeopardyAPI/Jeopardy';
 import Bored from './BoredAPI/BoredAPI_Kate';
 import { Button } from 'antd';
@@ -9,7 +8,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 // import Button from "@material-ui/core/Button";
 import './NavBar.css';
-import LiteCoin from './Brad';
+import Litecoin from './Brad';
 
 type acceptedProps = {
     clearToken: any,
