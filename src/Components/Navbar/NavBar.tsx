@@ -10,6 +10,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import './NavBar.css';
 import Litecoin from './Brad';
 
+
 type acceptedProps = {
     clearToken: any,
     protectedViews: any,

@@ -10,6 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import './login.css';
 import './auth.css';
+import APIURL from '../Helpers/environment';
+
 
 type valueTypes = {
     userName: string,
@@ -37,7 +39,7 @@ class Login extends React.Component<acceptedProps, valueTypes> {
     
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({
                 userName: this.state.userName,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { stringify } from 'querystring';
 import { Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import APIURL from '../../Helpers/environment';
 
 type AcceptedProps = {
     token: any,
@@ -29,7 +30,7 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/profile/`, {
+        fetch(`${APIURL}/profile/`, {
             method: 'PUT',
             body: JSON.stringify({
                 aboutMe: this.state.aboutMe,

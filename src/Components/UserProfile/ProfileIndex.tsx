@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
+import APIURL from '../../Helpers/environment';
 
 type acceptedProps = {
   setComments: any;
@@ -81,7 +82,7 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   };
 
   fetchProfiles = () => {
-    fetch('http://localhost:3000/profile/', {
+    fetch(`${APIURL}/profile/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

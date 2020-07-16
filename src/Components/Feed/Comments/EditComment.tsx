@@ -1,4 +1,5 @@
 import React from 'react';
+import APIURL from '../../../Helpers/environment';
 
 import { Button, Tooltip, Modal, Input } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
@@ -30,7 +31,7 @@ export default class editComment extends React.Component<acceptedProps, valueTyp
 
     updateComment = (event: any) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/comments/${this.props.setUpdateComment.id}`, {
+        fetch(`${APIURL}/comments/${this.props.setUpdateComment.id}`, {
             method: "PUT",
             body: JSON.stringify({
                 username: this.state.username,

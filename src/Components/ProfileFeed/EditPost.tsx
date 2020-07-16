@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Feed.css';
+import APIURL from '../../Helpers/environment';
 
 import { Modal } from 'antd';
 import TextField from '@material-ui/core/TextField';
@@ -50,7 +50,7 @@ export default class EditPost extends React.Component<acceptedProps, valueTypes>
 
     updateFeed = (event: any) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/feed/${this.props.setUpdatePost.id}`, {
+        fetch(`${APIURL}/feed/${this.props.setUpdatePost.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 // username: this.state.username,
