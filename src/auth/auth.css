@@ -5,7 +5,7 @@ h1 {
     padding:20px 20px 20px 20px;
     border:1px solid black;
     margin-top:50px;
-    margin-bottom:100px
+    margin-bottom:100px;
 }
 .login-col {
     padding:20px 20px 20px 20px;
@@ -15,20 +15,40 @@ h1 {
 }
 #auth-container {
     background-image: url('../Assets/michaelscott.jpg');
-    max-width: 100%;
-    height: 800px;
+    max-width: 120%;
+    height: 950px;
     background-repeat: no-repeat;
-    background-size: contain;
-
+    background-size: cover;
+    padding: 10px;
 }
 #dmlogo {
-    margin-right: 90vw
+    margin-top: 15px
+    }
+
+#dmlogo {
+    margin-left: -50%;
 }
 h3 {
-    width: 50%
+    width: 50%;
+    font-size: 30px;
+    font-family: 'American Typewriter Medium';
+    font-weight: bold;
+    margin-top: 5px;
 }
-.signuplogin {
-    width: 40%;
+#signuplogin {
+    width: 30%;
+    margin-left: 150px;
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
     border: 2px solid black;
-    background-color: lightgray
+    border-radius: 5px;
+    background-image: url('../Assets/paper.jpg');
+}
+
+#toggle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(4,45,123);
+    border-radius: 5px;
+    font-family: 'American Typewriter Medium';
 }

@@ -1,0 +1,26 @@
+#loginInput {
+    border-radius: 5px;
+    background-color: lightgrey;
+    height: 35px;
+    width: 300px;
+    text-indent: 5px;
+    margin-top: 1em;
+    font-size: 18px;
+    
+}
+#loginLabel {
+    font-size: 18px;
+    text-align: left;
+    justify-content: left;
+    align-content: left;
+    font-family: 'American Typewriter Medium';
+}
+#loginBtn {
+    margin-top: 10px;
+    background-color: rgb(4,45,123);
+    font-family: 'American Typewriter Medium';
+}
+#loginHeading {
+    text-align: center;
+    font-family: 'American Typewriter Medium';
+}

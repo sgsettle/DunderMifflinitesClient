@@ -7,17 +7,18 @@ import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
 import Login from './login';
-import LiteCoin from '../Components/Navbar/Brad';
 import logoPic from "../../src/Assets/theofficelogo.png";
 import { Button } from 'antd';
 
 type acceptedProps = {
-    token: any
-    updateUserName: any
+    token: any;
+    updateUserName: any;
+    setUsername: any;
+    updateUserRole: any;
 }
 
 type typeState ={
-    showLogin: boolean
+    showLogin: boolean,
 }
 
 class Auth extends React.Component<acceptedProps, typeState> {
@@ -47,29 +48,34 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <Container id="auth-container">
             <img id="dmlogo" src={logoPic} alt="logo" />
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
-            <div className="signuplogin">
+            <div id="signuplogin">
                 {this.state.showLogin ? 
-                <Login updateToken={this.props.token}/> :
-                <Signup updateToken={this.props.token}/>
+                <Login updateToken={this.props.token} setUserName={this.props.updateUserName} updateUserRole={this.props.updateUserRole}
+                /> :
+                <Signup updateToken={this.props.token} setUserName={this.props.updateUserName} updateUserRole={this.props.updateUserRole}
+                />
                 }
-                <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>{this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}</Button>
+                <br />
+                <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>
+                    {this.state.showLogin ? 'Not a Mifflinite? Signup Here' : 'Already a Mifflinite? Login Here'}
+                    </Button>
             </div>
             {/* <Row>
                 <Col md="5" className="signin-col">
-            <Signup updateToken={this.props.token}/>
+            <Signup updateToken={this.props.token} setUsername={this.props.updateUserName}/>
                 </Col>
                 <Col md="2">
 
                 </Col>
                 <Col md="5" className="login-col">
-            <Login updateToken={this.props.token} />
+            <Login updateToken={this.props.token} setUsername={this.props.updateUserName}/>
                 </Col>
             </Row> */}
 
-            <footer>
+            {/* <footer>
                 <LiteCoin />
-            </footer>
-            </Container>
+            </footer>*/}
+            </Container> 
         )   
     }
 }

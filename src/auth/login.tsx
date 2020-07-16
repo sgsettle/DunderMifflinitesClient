@@ -1,20 +1,27 @@
 import * as React from 'react';
-//import Form from '@material-ui/core/Form';
+//import Form from '@material-ui/core/';
 //import FormGroup from '@material-ui/core/FormGroup';
-//import Label from '@material-ui/core/Label';
+//import Label from '@material-ui/core';
 //import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {Form, FormGroup, Label, Input} from 'reactstrap';
+import './login.css';
+import {Form, FormGroup, Input, Label} from 'reactstrap';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import './login.css';
+import './auth.css';
 
 type valueTypes = {
     userName: string,
     setUserName: string,
     password: string,
-    setPassword: string
+    setPassword: string,
 };
 
 type acceptedProps = {
     updateToken: any
+    setUserName: any
+    updateUserRole: any
 };
 
 class Login extends React.Component<acceptedProps, valueTypes> {
@@ -43,22 +50,26 @@ class Login extends React.Component<acceptedProps, valueTypes> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
+            this.props.setUserName(data.user.userName);
+            this.props.updateUserRole(data.user.userRole);
         });
     };
 render() {
     return (
-    <div>
-        <h1 style={{textAlign:"center"}}>Login</h1>
-        <Form onSubmit={this.handleSubmit}>
+    <div id='loginDiv'>
+        <h1 id="loginHeading">Login</h1>
+        <Form className="loginForm" onSubmit={this.handleSubmit}>
             <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input onChange={(e) => this.setState({userName: e.target.value})} name="username" />{/**the value of the input fields is ultimately controlled by react. Because this component doesn't implement any use for setUsername or setPassword, the input fields will be stuck with no text inside, even if the user types them in */}
+                <Label id='loginLabel' htmlFor="username">Username:  </Label>
+                <Input id='loginInput' onChange={(e) => this.setState({userName: e.target.value})} 
+                name="username" type='text'/>
             </FormGroup>
             <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                <Input onChange={(e) => this.setState({password: e.target.value})} name="password" />
+                <Label id='loginLabel' htmlFor="password">Password:  </Label>
+                <Input id='loginInput' onChange={(e) => this.setState({password: e.target.value})} 
+                name="password" type='password'/>
             </FormGroup>
-            <Button type="submit" color="secondary" style={{marginLeft:'180px'}}>Login</Button>
+            <Button type="submit" variant="contained" color="primary" id="loginBtn">Log in</Button>
         </Form>
     </div>
     )

@@ -1,0 +1,26 @@
+
+#NavBarBase {
+    background-color: rgb(6, 45, 123);
+    height: 75px;
+    color: white;
+
+    display: flex;
+    flex: row;
+    align-items: flex-start;
+}
+
+#brandlogohome {
+    float: left;
+    margin-left: 0;
+    background-color: white;
+    margin-top: 2%;
+    width: 20%;
+    height: 85%;
+}
+
+#navButtons{
+    margin-top: 3%;
+    display: flex;
+    flex: row;
+    margin-left: 10%;
+}
