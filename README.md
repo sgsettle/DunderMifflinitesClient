@@ -19,18 +19,19 @@ Separate page acessed only by admin. Able to edit and delete any user, post, or 
 
 # Client Endpoint Use
 
-* 
+* Auth - uses multiple endpoints relating to the user data table for loggin in and signing up a user as well as the ability to update and delete user info by the admin. user/login user/signup user/:id 
 
-Screenshots of each page section are as follows:
+* Main Feed - uses database association of both the feed data table and the comments. Allows for users to interact with both. Feed posts house the username, an image, text, and a link attribute. Comments are accessed at the bottom of each feed post, with a modal to their full crud events as well. feed/ feed/username feed/comments comments/id
+
+* Profile Feed - gives the users their full crud over their individual posts. feed/username feed/id
+
+Screenshots of app pages:
 
 Initial Auth Page:
 ![](AuthScreenshot.png)
 
 Home/Main User Feed:
 ![](FeedScreenshot.png)
-
-User Profile:
-![]()
 
 Enjoy!
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../NavBar.css';
 
 import { Tooltip, Button, Modal } from 'antd';
 
@@ -25,7 +26,7 @@ export default class Bored extends React.Component< {}, valueType>{
     componentDidMount() {
         console.log("Bored API sucessfully mounted.");
 
-        fetch('http://www.boredapi.com/api/activity')
+        fetch('https://www.boredapi.com/api/activity')
             .then(res => res.json())
             .then(json => {
                 console.log(json);
@@ -53,7 +54,7 @@ export default class Bored extends React.Component< {}, valueType>{
         return(
             <div>
                 <Tooltip title='Bored?'>
-                    <Button className="NavButton" shape='circle' size='large' onClick={(e) => {
+                    <Button style={{marginLeft: '3.75vw', top: '8px'}} shape='circle' size='large' onClick={(e) => {
                         this.openModal()
                         this.componentDidMount()
                     }}>B

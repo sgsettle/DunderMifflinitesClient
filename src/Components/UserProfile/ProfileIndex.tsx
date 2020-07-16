@@ -4,12 +4,12 @@ import "./ProfileIndex.css";
 import ProfileCreate from "./ProfileCreate";
 import ProfileEdit from "./ProfileEdit";
 import ProfileFeed from '../ProfileFeed/ProfileFeed';
-//import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
+import APIURL from '../../Helpers/environment';
 
 type acceptedProps = {
   setComments: any;
@@ -81,7 +81,7 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   };
 
   fetchProfiles = () => {
-    fetch('http://localhost:3000/profile/', {
+    fetch(`${APIURL}/profile/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -104,12 +104,12 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
     return (
         <div className="mainProfileDiv">
             <div className="userDiv">
-          {this.state.createActive ? <ProfileCreate
+          <ProfileCreate
         //   setProfileCreate={this.state.setProfileCreate}
             token={this.props.token}
-            createOff={this.createOff}
+            updateOff={this.updateOff}
             fetchProfiles={this.fetchProfiles}
-          /> : <></>}
+          />
           {this.state.updateActive ? <ProfileEdit 
                  setProfileUpdate={this.state.setProfileUpdate}
                   updateOff={this.updateOff} 

@@ -4,13 +4,13 @@
 } 
 
 #commentTitle{
+    margin-left: 25%;
     margin-top: 5%;
-    margin-left: 32.5%;
     background-color: white;
 }
 
 #commentsTable{
-    height: 20vw;
+    height: 30vh;
     width: 30vw;
     text-align: center;
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 // import Modal from '@material-ui/core';
 import { Form, FormGroup, Label, Input, Modal, Button } from 'reactstrap';
+import APIURL from '../../Helpers/environment';
 
 
 type AcceptedProps = {
     token: any;
     fetchProfiles: any,
-    createOff: any
+    updateOff: any
 }
 
 type ValueTypes = {
@@ -43,7 +44,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch('http://localhost:3000/profile/', {
+        fetch(`${APIURL}/profile/`, {
             method: 'POST',
             body: JSON.stringify({
                 // firstName: this.state.firstName,//wont need
@@ -61,7 +62,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
         .then(json => {
             console.log(json)
             this.props.fetchProfiles();
-            this.props.createOff();
+            this.props.updateOff();
         })
     } 
 

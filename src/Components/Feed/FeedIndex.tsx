@@ -8,6 +8,8 @@ import { Card } from 'antd';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
 import { stringify } from 'querystring';
+import APIURL from '../../Helpers/environment';
+
 type acceptedProps = {
     setUserName: string | any;
     // setImage: string | any;
@@ -38,7 +40,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     }
     //GET FOR ALL USER INFO
     fetchUsers = (user: any) => {
-        fetch(`http://localhost:3000/user/`, {
+        fetch(`${APIURL}/user/`, {
             method: "GET",
             headers: {
                 "Content-type":"application/json"
@@ -55,7 +57,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
     }
     fetchFeeds = () => {
         console.log('Fetching all feed posts.')
-        fetch('http://localhost:3000/feed', {
+        fetch(`${APIURL}/feed`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -72,7 +74,7 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
         })
     }
     deleteFeed = ( feed: any) => {
-        fetch(`http://localhost:3000/feed/${feed.id}`, {
+        fetch(`${APIURL}/feed/${feed.id}`, {
             method: 'DELETE',
             headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
         }).then(() => this.fetchFeeds())

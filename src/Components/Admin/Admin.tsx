@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import { Container, Button } from 'reactstrap';
 import { Card } from 'antd';
 import './Admin.css';
+import APIURL from '../../Helpers/environment';
 //import IconButton from '@material-ui/core/IconButton';
 //import DeleteTwoToneIcon from '@material-ui/icons/';
 
@@ -34,7 +35,7 @@ export default class extends React.Component<acceptedProps, valueTypes> {
     }
     fetchUsers = () => {
         console.log('Fetching users by ' + this.state.username);
-        fetch('http://localhost:3000/user', {
+        fetch(`${APIURL}/user`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -52,7 +53,7 @@ export default class extends React.Component<acceptedProps, valueTypes> {
     }
 
     deleteUser = ( user: any) => {
-        fetch(`http://localhost:3000/user/${user.id}`, {
+        fetch(`${APIURL}/user/${user.id}`, {
             method: 'DELETE',
             headers: new Headers({'Content-Type': 'application/json'}),
 

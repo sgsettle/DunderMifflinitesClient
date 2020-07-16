@@ -3,7 +3,7 @@ import './App.css';
 import Auth from './auth/auth';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
-import UserProfile from './Components/UserProfile/ProfileIndex'
+import UserProfile from './Components/UserProfile/ProfileIndex';
 import SiteBar from './Components/Navbar/NavBar';
 import Admin from './Components/Admin/Admin';
 

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 import './signup.css';
 import './auth.css';
+import APIURL from '../Helpers/environment';
 
 type valueTypes = {
     firstName: string,
@@ -39,7 +40,7 @@ class Signup extends React.Component<acceptedProps, valueTypes> {
     
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/signup', {
+        fetch(`${APIURL}/user/signup`, {
             method: 'POST',
             body: JSON.stringify({
                 firstName: this.state.firstName,

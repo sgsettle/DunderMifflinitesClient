@@ -1,5 +1,6 @@
 import React from 'react';
 import './CreatePost.css';
+import APIURL from '../../Helpers/environment';
 
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
@@ -45,7 +46,7 @@ export default class CreatePost extends React.Component<acceptedProps, valueType
     handleSubmit = (event: any) => {
         //console.log('This is a post by ' + this.state.username);
         event.preventDefault();
-        fetch('http://localhost:3000/feed/', {
+        fetch(`${APIURL}/feed/`, {
             method: 'POST',
             body: JSON.stringify({
                 userName: this.state.username,
@@ -68,8 +69,8 @@ export default class CreatePost extends React.Component<acceptedProps, valueType
     }
 
     body = (
-        <div id='PostCreateDiv'>
-            <form noValidate autoComplete="off" onSubmit={this.handleSubmit} >
+        <div  id='PostCreateDiv'>
+            <form  noValidate autoComplete="off" onSubmit={this.handleSubmit} >
                 <h2 id='createUname'>Post It:</h2>
                 <TextField 
                 className='createField'

@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button, Tooltip } from 'antd';
 import './Brad.css';
+import './NavBar.css';
 
 type acceptedProps = {
 };
@@ -58,7 +59,7 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
     return (
         <div>
           <Tooltip title='LiteCoin'>
-          <Button className="NavButton" shape='circle' size='large' onClick={(e) => {
+          <Button style={{ marginLeft: "3.75vw", top: "12px"}} shape='circle' size='large' onClick={(e) => {
               this.showModal()
               this.componentDidMount()
           }}>L

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Comments.css';
 import EditComment from './EditComment';
+import APIURL from '../../../Helpers/environment';
 
 import  Tooltip  from '@material-ui/core/Tooltip';
 import  Dialog  from '@material-ui/core/Dialog';
@@ -66,7 +67,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
     //GET ALL COMMENTS, FETCH COMMENT DATA
     fetchComments = () => {
         console.log('Fetching comments for GET.')
-        fetch(`http://localhost:3000/comments/`, {
+        fetch(`${APIURL}/comments/`, {
             method: 'GET',
             headers: {
                 "Content-type":"application/json",
@@ -85,7 +86,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
     //CREATE A COMMENT
     createComment = ( event: any ) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/comments/`, {
+        fetch(`${APIURL}/comments/`, {
                 method: 'POST',
                 body: JSON.stringify({
                     userName: this.state.username,
@@ -103,7 +104,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
 
     //DELETE A COMMENT
     deleteComment = ( comment: any ) => {
-        fetch(`http://localhost:3000/comments/${comment.id}`, {
+        fetch(`${APIURL}/comments/${comment.id}`, {
             method: 'DELETE',
             headers: new Headers({'Content-Type': 'application/json', Authorization: this.props.token})
         }).then(() => this.fetchComments())
@@ -182,7 +183,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                     aria-labelledby="customized-dialog-title"
                     >
                         <h3 id='commentTitle'>Comments:</h3>
-                        <table>
+                        <table id="commentsTable">
                             <thead>
                                 <tr>
                                     <th>Username</th>

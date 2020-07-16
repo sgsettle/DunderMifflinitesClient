@@ -2,7 +2,7 @@ import React from 'react';
 import './ProfileFeed.css';
 import CreatePost from '../Feed/CreatePost';
 import EditPost from './EditPost';
-// import EditPost from './EditPost';
+import APIURL from '../../Helpers/environment';
 import './ProfileFeed.css';
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
@@ -59,7 +59,7 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
 
     fetchFeeds = () => {
         console.log('Fetching a post by ' + this.state.username);
-        fetch(`http://localhost:3000/feed/${this.props.setUsername}`, {
+        fetch(`${APIURL}/feed/${this.props.setUsername}`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
     }
 
     deleteFeed = ( feed: any) => {
-        fetch(`http://localhost:3000/feed/${feed.id}`, {
+        fetch(`${APIURL}/feed/${feed.id}`, {
             method: 'DELETE',
             headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
 

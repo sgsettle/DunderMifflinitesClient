@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Button, Tooltip } from 'antd';
+import '../NavBar.css';
 
 type ValueType = {
     question: string,
@@ -20,7 +21,7 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
     componentDidMount = () => {
         const getInfo = () => {
         fetch(
-            'http://jservice.io/api/random', {
+            'https://jservice.io/api/random', {
             method: 'GET',
             })
         .then((result) => result.json())
@@ -52,7 +53,7 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
         return (
             <div>
                 <Tooltip title='Jeopardy'>
-                    <Button className="NavButton" shape="circle" size="large" onClick={(e) => {
+                    <Button style={{top: "10px", marginLeft: "3.75vw" }} shape="circle" size="large" onClick={(e) => {
                         this.showModal()
                         this.componentDidMount()
                     }}>
