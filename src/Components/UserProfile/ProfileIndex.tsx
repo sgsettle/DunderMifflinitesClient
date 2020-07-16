@@ -15,6 +15,7 @@ type acceptedProps = {
   setComments: any;
   token: any;
   setUsername: any;
+  updateUserRole: any;
 };
 
 type valueTypes = {

@@ -10,6 +10,7 @@ import './Admin.css';
 type acceptedProps = {
     setUserName: string | any;
     token: any;
+    updateUserRole: any;
 }
 
 type valueTypes = {
@@ -37,7 +38,7 @@ export default class extends React.Component<acceptedProps, valueTypes> {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
-                Authorization: this.props.token
+                // Authorization: this.props.token
             }
         })
         .then((response) => response.json())
@@ -53,7 +54,7 @@ export default class extends React.Component<acceptedProps, valueTypes> {
     deleteUser = ( user: any) => {
         fetch(`http://localhost:3000/user/${user.id}`, {
             method: 'DELETE',
-            headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
+            headers: new Headers({'Content-Type': 'application/json'}),
 
         }).then(() => this.fetchUsers())
     }

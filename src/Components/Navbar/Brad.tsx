@@ -58,7 +58,7 @@ class LiteCoin extends React.Component<acceptedProps, valueTypes> {
     return (
         <div>
           <Tooltip title='LiteCoin'>
-          <Button className='eachButton' shape='circle' size='large' onClick={(e) => {
+          <Button className="NavButton" shape='circle' size='large' onClick={(e) => {
               this.showModal()
               this.componentDidMount()
           }}>L

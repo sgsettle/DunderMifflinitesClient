@@ -14,6 +14,7 @@ type acceptedProps = {
     token: any;
     updateUserName: any;
     setUsername: any;
+    updateUserRole: any;
 }
 
 type typeState ={
@@ -49,8 +50,10 @@ class Auth extends React.Component<acceptedProps, typeState> {
             <h3 id="welcomeSubheading">A site for fans of The Office</h3>
             <div id="signuplogin">
                 {this.state.showLogin ? 
-                <Login updateToken={this.props.token} setUserName={this.props.updateUserName}/> :
-                <Signup updateToken={this.props.token} setUserName={this.props.updateUserName}/>
+                <Login updateToken={this.props.token} setUserName={this.props.updateUserName} updateUserRole={this.props.updateUserRole}
+                /> :
+                <Signup updateToken={this.props.token} setUserName={this.props.updateUserName} updateUserRole={this.props.updateUserRole}
+                />
                 }
                 <br />
                 <Button type="primary" id="toggle" onClick={(e) => this.loginToggle(e)}>

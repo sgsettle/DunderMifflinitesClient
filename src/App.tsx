@@ -18,7 +18,8 @@ type acceptedProps = {
 type valueTypes = {
   setUserName: string | any,
   setToken: string | any,
-  setComments: any
+  setComments: any,
+  setUserRole: any,
 }
 
 
@@ -29,6 +30,7 @@ class App extends React.Component<{}, valueTypes> {
       setUserName: "",
       setToken: "",
       setComments: '',
+      setUserRole: '',
     };
   }
 
@@ -43,7 +45,17 @@ class App extends React.Component<{}, valueTypes> {
   if (localStorage.getItem("token")) {
     this.setState({setToken: localStorage.getItem("token")});
   }
+  if (localStorage.getItem("userRole")) {
+    this.setState({ setUserRole: localStorage.getItem("userRole") });
+  }
  }
+
+ updateUserRole = (newUserRole: string) => {
+  localStorage.setItem("userRole", newUserRole);
+  this.setState({ setUserRole: newUserRole });
+  console.log(this.state.setUserRole);
+};
+
 
  updateToken = (newToken: string) => {
   localStorage.setItem('token', newToken);
@@ -67,12 +79,15 @@ updateUsername = (newUsername: string) => {
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <FeedIndex
-      token={this.state.setToken} setUserName={this.updateUsername} setComments={this.state.setComments}/> 
+      token={this.state.setToken} setUserName={this.updateUsername} setComments={this.state.setComments} 
+      /> 
       ) : (
      <Auth
       token={this.updateToken}
       updateUserName={this.updateUsername}
       setUsername={this.updateUsername}
+      updateUserRole={this.updateUserRole}
+
       />
      )
   };
@@ -80,12 +95,15 @@ updateUsername = (newUsername: string) => {
   protectedViewTwo = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <UserProfile 
-      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments} updateUserRole={this.updateUserRole}
+      />
     ) : (
       <Auth
       token={this.updateToken}
       updateUserName={this.updateUsername}
       setUsername={this.updateUsername}
+      updateUserRole={this.updateUserRole}
+
       />
     )
   }
@@ -95,12 +113,16 @@ updateUsername = (newUsername: string) => {
         <Admin 
         token={this.updateToken}
         setUserName={this.updateUsername}
+        updateUserRole={this.updateUserRole}
+
         />
     ) : (
       <Auth
       token={this.updateToken}
       updateUserName={this.updateUsername}
       setUsername={this.updateUsername}
+      updateUserRole={this.updateUserRole}
+
       />
     )
   }

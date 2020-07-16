@@ -20,6 +20,7 @@ type valueTypes = {
 type acceptedProps = {
     updateToken: any
     setUserName: any
+    updateUserRole: any
 };
 
 class Signup extends React.Component<acceptedProps, valueTypes> {
@@ -54,7 +55,8 @@ class Signup extends React.Component<acceptedProps, valueTypes> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
-            this.props.setUserName(data.user.userName)
+            this.props.setUserName(data.user.userName);
+            this.props.updateUserRole(data.user.userRole);
         });
     };
 render() {
