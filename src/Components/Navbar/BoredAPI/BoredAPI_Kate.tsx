@@ -25,7 +25,7 @@ export default class Bored extends React.Component< {}, valueType>{
     componentDidMount() {
         console.log("Bored API sucessfully mounted.");
 
-        fetch('http://www.boredapi.com/api/activity')
+        fetch('https://www.boredapi.com/api/activity')
             .then(res => res.json())
             .then(json => {
                 console.log(json);

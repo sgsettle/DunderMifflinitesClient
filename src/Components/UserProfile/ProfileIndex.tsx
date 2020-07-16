@@ -4,7 +4,6 @@ import "./ProfileIndex.css";
 import ProfileCreate from "./ProfileCreate";
 import ProfileEdit from "./ProfileEdit";
 import ProfileFeed from '../ProfileFeed/ProfileFeed';
-//import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
 import AddCircleIcon from '@material-ui/icons/AddCircle';

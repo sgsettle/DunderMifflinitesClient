@@ -20,7 +20,7 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
     componentDidMount = () => {
         const getInfo = () => {
         fetch(
-            'http://jservice.io/api/random', {
+            'https://jservice.io/api/random', {
             method: 'GET',
             })
         .then((result) => result.json())
