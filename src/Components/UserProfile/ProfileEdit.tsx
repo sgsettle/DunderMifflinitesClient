@@ -27,8 +27,8 @@ export default class ProfileEdit extends React.Component<AcceptedProps, ValueTyp
         } 
     }
 
-    handleSubmit = () => {
-        // event.preventDefault();
+    handleSubmit = (event: any) => {
+        event.preventDefault();
         fetch(`http://localhost:3000/profile/`, {
             method: 'PUT',
             body: JSON.stringify({

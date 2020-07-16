@@ -3,8 +3,8 @@ import './App.css';
 import Auth from './auth/auth';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
+import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-import UserProfile from './Components/UserProfile/ProfileIndex';
 import Admin from './Components/Admin/Admin';
 
 type acceptedProps = {
@@ -20,6 +20,7 @@ type valueTypes = {
   setToken: string | any,
   setComments: any
 }
+
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
@@ -109,13 +110,12 @@ render() {
     <div className="App">
       <Router>
 
-      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews}
-       protectedViewsTwo={this.protectedViewTwo} 
-       protectedViewsThree={this.protectedViewThree}/> 
+      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews} protectedViewsTwo={this.protectedViewTwo} protectedViewsThree={this.protectedViewThree}/> 
       
       </Router>
     </div>
   )
+
   }
 };
 
