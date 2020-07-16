@@ -1,8 +1,5 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-//import Row from '@material-ui/core/Row';
-//import Col from '@material-ui/core/Col';
-//import { FormGroup } from '@material-ui/core';
 import {Row, Col} from 'reactstrap';
 import './auth.css';
 import Signup from './signup';
