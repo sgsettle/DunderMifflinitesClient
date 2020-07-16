@@ -6,7 +6,7 @@ import { Form, FormGroup, Label, Input, Modal, Button } from 'reactstrap';
 type AcceptedProps = {
     token: any;
     fetchProfiles: any,
-    createOff: any
+    updateOff: any
 }
 
 type ValueTypes = {
@@ -61,7 +61,7 @@ class ProfileCreate extends React.Component<AcceptedProps, ValueTypes> {
         .then(json => {
             console.log(json)
             this.props.fetchProfiles();
-            this.props.createOff();
+            this.props.updateOff();
         })
     } 
 
