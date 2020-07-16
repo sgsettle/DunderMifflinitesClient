@@ -2,53 +2,62 @@
 
 body {
     background-color: #fff;
-
-    /* font-family: "ITC American Typewriter"; */
 }
-
-/* @font-face {
-     
-    src: url('../../Assets/ITC-American-Typewriter-Medium.otf'); 
-} */
 
 .mainProfileDiv {
     background-image: url('../../Assets/michaelOffice.jpg');
+    width: 1000px;
+    height: 1000px;
     /* margin-top: 120px;
     margin-left: 70px;
     display: inline-flex;
     float: left; */
 }
 
- /* .userInfo {
+ .userInfo {
      margin-top: 120px;
     margin-left: 70px;
     display: inline-flex;
      float: left;
-} */
+     margin-right: 140px;
+}
 
 .nameDiv {
     background-color: rgba(255, 255, 255, 0.5);
-    padding-left: 5px;
+    /* padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
-    padding-bottom: 1px;
+    padding-bottom: 1px; */
     margin-bottom: 5px;
+    text-align: center;
+    box-shadow: #000e91 0 0 4px 4px;
 }
 
 .aboutInfo {
     background-color: rgba(255, 255, 255, 0.5);
-    border: black solid 2px;
-
+    /* border: blue solid 2px; */
+    box-shadow: #000e91 0 0 4px 4px;
 }
 
 h3 {
     font-size: 23px;
-    font-weight: 550;
+    font-weight: 580;
     font-family: "ITC American Typewriter";
+    text-align: center;
+    justify-content: center;
+    /* margin-left: 40px; */
+    width: 240px;
 }
+
 
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 540;
+}
+
+.profileFeedDiv {
+    /* float: right; */
+    margin-left: 400px;
+    /* margin-right: -100px; */
 }
