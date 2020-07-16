@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button, Tooltip } from 'antd';
 
 type ValueType = {
     question: string,
@@ -51,12 +51,14 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
     render() {
         return (
             <div>
-                <Button className="jeopardyButton" onClick={(e) => {
-                    this.showModal()
-                    this.componentDidMount()
-                }}>
-                    Jeopardy
-                </Button>
+                <Tooltip title='Jeopardy'>
+                    <Button className="NavButton" shape="circle" size="large" onClick={(e) => {
+                        this.showModal()
+                        this.componentDidMount()
+                    }}>
+                        J
+                    </Button>
+                </Tooltip>
                 <Modal
                 title="Jeopardy Questions"
                 visible={this.state.visible}
