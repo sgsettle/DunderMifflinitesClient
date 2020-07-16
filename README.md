@@ -9,6 +9,18 @@ Feel free to clone and play around in the app!<br />
 This is a React app written in Legacy code and Typescript. 
 You will need to have all associated installations or run $npm update in your terminal to install all packages necessary for your machine to facilitate the code.
 
+# User Role
+
+Full crud capability with both feed posts and comments.
+
+# Admin Role
+
+Separate page acessed only by admin. Able to edit and delete any user, post, or comment.
+
+# Client Endpoint Use
+
+* 
+
 Screenshots of each page section are as follows:
 
 Initial Auth Page:

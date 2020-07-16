@@ -8,7 +8,6 @@ import { Card } from 'antd';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
 import { stringify } from 'querystring';
-
 type acceptedProps = {
     setUserName: string | any;
     // setImage: string | any;
@@ -17,7 +16,6 @@ type acceptedProps = {
     setComments: any;
     token: any;
 }
-
 type valueTypes = {
     username: string | any;
     image: string;
@@ -26,7 +24,6 @@ type valueTypes = {
     comment: string;
     dataTable: []
 }
-
 export default class FeedIndex extends React.Component<acceptedProps, valueTypes> {
     constructor(props: acceptedProps) {
         super(props);
@@ -56,8 +53,6 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
             console.log("USERSDATA", this.state.dataTable)
         })
     }
-
-
     fetchFeeds = () => {
         console.log('Fetching all feed posts.')
         fetch('http://localhost:3000/feed', {
@@ -76,15 +71,12 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
             console.log("FEEDS:", this.state.dataTable)
         })
     }
-
     deleteFeed = ( feed: any) => {
         fetch(`http://localhost:3000/feed/${feed.id}`, {
             method: 'DELETE',
             headers: new Headers({'Content-Type': 'application/json', 'Authorization': this.props.token}),
-
         }).then(() => this.fetchFeeds())
     }
-
     feedMapper = () => {
         return this.state.dataTable.map((feeds: any, index) => {
             return(
@@ -98,21 +90,16 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
                         <p id='cardUname'>{feeds.userName}</p>
                         <p id='cardText'>{feeds.text}</p>
                         <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
-                        
                         <Comments setUsername={this.props.setUserName} setComments={this.state.comment} token={this.props.token} fetchUsers={this.fetchUsers}/>
-                        
                     </Card>
-                    
                 </div>
             )
         })
     }
-
     componentDidMount(){
         this.fetchFeeds();
         this.fetchUsers(this.state.dataTable);
     }
-
     render() {
         return(
             <div id='feedDiv'>
@@ -125,3 +112,11 @@ export default class FeedIndex extends React.Component<acceptedProps, valueTypes
         )
     }
 }
+
+
+
+
+
+
+
+

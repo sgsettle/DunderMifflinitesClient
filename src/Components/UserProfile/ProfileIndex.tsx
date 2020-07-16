@@ -15,6 +15,7 @@ type acceptedProps = {
   setComments: any;
   token: any;
   setUsername: any;
+  updateUserRole: any;
 };
 
 type valueTypes = {
@@ -121,7 +122,8 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
                 {this.state.dataTable.map((profile: any, index) => (
                   <div key={index} >
                     <div className="nameDiv">
-                        <h3>Dunder Mifflin. This is </h3>
+                        <h3>Dunder Mifflin.</h3>
+                        <h3> This is </h3>
                         <h1>{profile.firstName} {profile.lastName}</h1>
                     </div>
                     <Container className='aboutInfo'>
