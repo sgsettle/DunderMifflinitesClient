@@ -66,7 +66,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button className="NavButton" style={{width: '100px', marginTop: '14vh', marginLeft: '2vw'}} size='large'>
+            <Button className="NavButton" style={{width: '100px', marginTop: '4px', marginLeft: '2vw'}} size='large'>
                 <Link to="/Admin">Admin</Link>
             </Button>
         )
@@ -98,7 +98,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 {/* if you want to do dropdown put it  here */}
                 <Button
                 className="NavButton"
-                style={{width: '100px', marginLeft: "92%", top: "-200px"}}
+                style={{width: '100px', marginLeft: "92%", top: "-105px"}}
                 onClick={this.props.clearToken}
                 size='large'
                 >Logout
