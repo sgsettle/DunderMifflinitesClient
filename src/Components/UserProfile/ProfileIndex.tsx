@@ -104,12 +104,12 @@ class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
     return (
         <div className="mainProfileDiv">
             <div className="userDiv">
-          {this.state.createActive ? <ProfileCreate
+          <ProfileCreate
         //   setProfileCreate={this.state.setProfileCreate}
             token={this.props.token}
-            createOff={this.createOff}
+            updateOff={this.updateOff}
             fetchProfiles={this.fetchProfiles}
-          /> : <></>}
+          />
           {this.state.updateActive ? <ProfileEdit 
                  setProfileUpdate={this.state.setProfileUpdate}
                   updateOff={this.updateOff} 
