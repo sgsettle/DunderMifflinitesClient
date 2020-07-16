@@ -87,7 +87,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         (
             ""
         ) : (
-            <AppBar position="static">
+            <AppBar id="NavBarBase" position="static">
                 <Toolbar className="classes.color">
                     {this.viewFeed()}
                 </Toolbar>

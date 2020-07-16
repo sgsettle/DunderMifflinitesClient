@@ -1,22 +1,23 @@
-/* @import url(//db.onlinewebfonts.com/c/4db9755ca4ef2df7fc9cbce2d0c7f3ea?family=ITC+American+Typewriter); */
+
 
 body {
     background-color: #fff;
-    background-image: url('../../Assets/michaelOffice.jpg');
-    /* font-family: "ITC American Typewriter"; */
-}
-
-@font-face {
-    font-family: "ITC American Typewriter"; 
-    src: url('../../Assets/ITC-American-Typewriter-Medium.otf'); 
 }
 
 .mainProfileDiv {
-    margin-top: 120px;
+    background-image: url('../../Assets/michaelOffice.jpg');
+    /* margin-top: 120px;
     margin-left: 70px;
     display: inline-flex;
-    float: left;
+    float: left; */
 }
+
+ /* .userInfo {
+     margin-top: 120px;
+    margin-left: 70px;
+    display: inline-flex;
+     float: left;
+} */
 
 .nameDiv {
     background-color: rgba(255, 255, 255, 0.5);
@@ -36,6 +37,7 @@ body {
 h3 {
     font-size: 23px;
     font-weight: 550;
+    font-family: "ITC American Typewriter";
 }
 
 p {

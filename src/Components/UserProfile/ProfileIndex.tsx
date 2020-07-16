@@ -3,16 +3,18 @@ import ReactDOM from "react-dom";
 import "./ProfileIndex.css";
 import ProfileCreate from "./ProfileCreate";
 import ProfileEdit from "./ProfileEdit";
+import ProfileFeed from '../ProfileFeed/ProfileFeed';
 //import ProfileTable from './ProfileTable';
 import { Row, Col, Button, Container } from "reactstrap";
 import Paper from "@material-ui/core/Paper";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from "@material-ui/icons/Edit";
 import { stringify } from "querystring";
 
 type acceptedProps = {
-  setUsername: any;
   setComments: any;
   token: any;
+  setUsername: any;
 };
 
 type valueTypes = {
@@ -25,12 +27,14 @@ type valueTypes = {
   favEpisode: string;
   dataTable: [];
   updateActive: boolean;
+  createActive: boolean;
   setProfileUpdate: string;
+  setProfileCreate: string;
   profile: string;
   id: string;
 };
 
-class UserProfile extends React.Component<acceptedProps, valueTypes> {
+class ProfileIndex extends React.Component<acceptedProps, valueTypes> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {
@@ -43,11 +47,25 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
       favEpisode: "",
       dataTable: [],
       updateActive: false,
+      createActive: false,
       setProfileUpdate: "",
+      setProfileCreate: "",
       profile: "",
       id: "",
     };
   }
+
+  createUserProfile = (profile: any) => {
+    this.setState({ setProfileCreate: profile });
+  };
+
+  createOn = () => {
+      this.setState({ createActive: true });
+  };
+
+  createOff = () => {
+      this.setState({ createActive: false });
+  };
 
   editUpdateProfile = (profile: any) => {
     this.setState({ setProfileUpdate: profile });
@@ -83,17 +101,20 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
   
   render() {
     return (
-      <div className="mainProfileDiv">
-          <ProfileCreate
+        <div className="mainProfileDiv">
+            <div className="userDiv">
+          {this.state.createActive ? <ProfileCreate
+        //   setProfileCreate={this.state.setProfileCreate}
             token={this.props.token}
-            updateOff={this.updateOff}
+            createOff={this.createOff}
             fetchProfiles={this.fetchProfiles}
-          />
+          /> : <></>}
           {this.state.updateActive ? <ProfileEdit 
                  setProfileUpdate={this.state.setProfileUpdate}
                   updateOff={this.updateOff} 
                   token={this.props.token} 
                   fetchProfiles={this.fetchProfiles}/> : <></>}
+            </div>
         <div className="userInfo">
           <Container>
               <div>
@@ -105,6 +126,10 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
                     </div>
                     <Container className='aboutInfo'>
                     <div className="editIconDiv">
+                    <AddCircleIcon onClick={() => {
+                        this.createUserProfile(profile)
+                        this.createOn()
+                    }}/>
                     <EditIcon onClick={()=> {
                     this.editUpdateProfile(profile)
                     this.updateOn()
@@ -124,11 +149,14 @@ class UserProfile extends React.Component<acceptedProps, valueTypes> {
               </div>
           </Container>
         </div>
+        <div className="profileFeedDiv">
+            <ProfileFeed token={this.props.token} setUsername={this.props.setUsername} setComments={this.props.setComments} />
+        </div>        
       </div>
     );
   }
 }
-export default UserProfile;
+export default ProfileIndex;
 
 // WORKING MAP ( KEEP JUST IN CASE )
 {/* <TableContainer component={Paper}>

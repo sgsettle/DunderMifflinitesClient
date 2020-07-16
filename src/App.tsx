@@ -3,12 +3,9 @@ import './App.css';
 import Auth from './auth/auth';
 import FeedIndex from './Components/Feed/FeedIndex';
 import { HashRouter as Router } from "react-router-dom";
+import UserProfile from './Components/UserProfile/ProfileIndex'
 import SiteBar from './Components/Navbar/NavBar';
-import './App.css';
-import UserProfile from './Components/UserProfile/ProfileIndex';
 import Admin from './Components/Admin/Admin';
-
-import './App.css';
 
 type acceptedProps = {
   updateToken: any,
@@ -23,6 +20,7 @@ type valueTypes = {
   setToken: string | any,
   setComments: any
 }
+
 
 class App extends React.Component<{}, valueTypes> {
   constructor(props: valueTypes){
@@ -82,8 +80,7 @@ updateUsername = (newUsername: string) => {
   protectedViewTwo = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <UserProfile 
-      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}
-      />
+      token={this.state.setToken} setUsername={this.updateUsername} setComments={this.state.setComments}/>
     ) : (
       <Auth
       token={this.updateToken}
@@ -113,13 +110,12 @@ render() {
     <div className="App">
       <Router>
 
-      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews}
-       protectedViewsTwo={this.protectedViewTwo} 
-       protectedViewsThree={this.protectedViewThree}/> 
+      <SiteBar clearToken={this.clearToken} protectedViews={this.protectedViews} protectedViewsTwo={this.protectedViewTwo} protectedViewsThree={this.protectedViewThree}/> 
       
       </Router>
     </div>
   )
+
   }
 };
 
