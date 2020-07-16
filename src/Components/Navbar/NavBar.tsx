@@ -98,7 +98,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 {/* if you want to do dropdown put it  here */}
                 <Button
                 className="NavButton"
-                style={{width: '100px', top: "-410px", marginLeft: "92%"}}
+                style={{width: '100px', marginLeft: "92%"}}
                 onClick={this.props.clearToken}
                 size='large'
                 >Logout

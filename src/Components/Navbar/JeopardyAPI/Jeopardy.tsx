@@ -53,7 +53,7 @@ export default class Jeopardy extends React.Component<{}, ValueType> {
         return (
             <div>
                 <Tooltip title='Jeopardy'>
-                    <Button style={{top: "-168px", marginLeft: "3.75vw" }} shape="circle" size="large" onClick={(e) => {
+                    <Button style={{top: "-2px", marginLeft: "3.75vw" }} shape="circle" size="large" onClick={(e) => {
                         this.showModal()
                         this.componentDidMount()
                     }}>
