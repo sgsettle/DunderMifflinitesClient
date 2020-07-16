@@ -183,7 +183,7 @@ export default class Comments extends React.Component< acceptedProps, valueTypes
                     aria-labelledby="customized-dialog-title"
                     >
                         <h3 id='commentTitle'>Comments:</h3>
-                        <table>
+                        <table id="commentsTable">
                             <thead>
                                 <tr>
                                     <th>Username</th>

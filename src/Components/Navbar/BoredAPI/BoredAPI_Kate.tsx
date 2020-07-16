@@ -1,4 +1,5 @@
 import React from 'react';
+import '../NavBar.css';
 
 import { Tooltip, Button, Modal } from 'antd';
 
@@ -53,7 +54,7 @@ export default class Bored extends React.Component< {}, valueType>{
         return(
             <div>
                 <Tooltip title='Bored?'>
-                    <Button className="NavButton" shape='circle' size='large' onClick={(e) => {
+                    <Button style={{marginLeft: '3.75vw', top: '-170px'}} shape='circle' size='large' onClick={(e) => {
                         this.openModal()
                         this.componentDidMount()
                     }}>B

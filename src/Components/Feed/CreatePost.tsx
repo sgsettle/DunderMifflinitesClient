@@ -69,8 +69,8 @@ export default class CreatePost extends React.Component<acceptedProps, valueType
     }
 
     body = (
-        <div id='PostCreateDiv'>
-            <form noValidate autoComplete="off" onSubmit={this.handleSubmit} >
+        <div  id='PostCreateDiv'>
+            <form  noValidate autoComplete="off" onSubmit={this.handleSubmit} >
                 <h2 id='createUname'>Post It:</h2>
                 <TextField 
                 className='createField'

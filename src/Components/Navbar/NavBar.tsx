@@ -54,7 +54,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button className="NavButton" style={{width: '100px'}} size='large'>
+            <Button className="NavButton" style={{width: '100px', marginTop: "3vh", marginLeft: "2vw" }} size='large'>
                 <Link to='/Profile'>Profile</Link>
             </Button>
         )
@@ -66,7 +66,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button className="NavButton" style={{width: '100px'}} size='large'>
+            <Button className="NavButton" style={{width: '100px', marginTop: '14vh', marginLeft: '2vw'}} size='large'>
                 <Link to="/Admin">Admin</Link>
             </Button>
         )
@@ -98,9 +98,8 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 {/* if you want to do dropdown put it  here */}
                 <Button
                 className="NavButton"
-                style={{width: '100px'}}
+                style={{width: '100px', top: "-410px", marginLeft: "92%"}}
                 onClick={this.props.clearToken}
-                id="navLog"
                 size='large'
                 >Logout
             </Button>
@@ -109,16 +108,6 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 
         )
     }
-
-    // domRoutes = () => {
-    //     return(
-    //         <Switch>
-    //             <Route exact path="/">{this.props.protectedViews()}</Route>
-    //             <Route exact path="/Admin"/>
-    //     <Route exact path="/Profile">{this.props.protectedViewsTwo()}</Route>
-    //         </Switch>
-    //     )
-    // }
 
     render() {
     return (
