@@ -53,7 +53,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button style={{width: '100px'}} size='large'>
+            <Button className="NavButton" style={{width: '100px'}} size='large'>
                 <Link to='/Profile'>Profile</Link>
             </Button>
         )
@@ -65,7 +65,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
         return localStorage.getItem('token') === null ? (
             ""
         ) : (
-            <Button style={{width: '100px'}} size='large'>
+            <Button className="NavButton" style={{width: '100px'}} size='large'>
                 <Link to="/Admin">Admin</Link>
             </Button>
         )
@@ -74,9 +74,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
     //user role authorization for admin button
     adminValidation = () => {
         return localStorage.getItem('userRole') === 'admin' ? (
-            <Button>
-                {this.adminPage()}
-            </Button>
+                this.adminPage()
         ) : (
             ""
         )
@@ -98,6 +96,7 @@ export default class SiteBar extends React.Component<acceptedProps, valueTypes> 
                 <Litecoin />
                 {/* if you want to do dropdown put it  here */}
                 <Button
+                className="NavButton"
                 style={{width: '100px'}}
                 onClick={this.props.clearToken}
                 id="navLog"

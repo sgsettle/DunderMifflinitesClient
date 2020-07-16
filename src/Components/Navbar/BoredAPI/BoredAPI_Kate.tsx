@@ -53,7 +53,7 @@ export default class Bored extends React.Component< {}, valueType>{
         return(
             <div>
                 <Tooltip title='Bored?'>
-                    <Button className='eachButton' shape='circle' size='large' onClick={(e) => {
+                    <Button className="NavButton" shape='circle' size='large' onClick={(e) => {
                         this.openModal()
                         this.componentDidMount()
                     }}>B
