@@ -1,7 +1,9 @@
+
 #NavBarBase {
     background-color: rgb(6, 45, 123);
     height: 75px;
     color: white;
+
     display: flex;
     flex: row;
     overflow: hidden;

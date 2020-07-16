@@ -1,12 +1,14 @@
 import React from 'react';
 import './ProfileFeed.css';
 import CreatePost from '../Feed/CreatePost';
+import EditPost from './EditPost';
 // import EditPost from './EditPost';
-
+import './ProfileFeed.css';
 import { Container } from 'reactstrap';
 import { Card } from 'antd';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteOutlineTwoToneIcon from '@material-ui/icons/DeleteOutlineTwoTone';
+import EditIcon from '@material-ui/icons/Edit';
 
 type acceptedProps = {
     setUsername: string | any;
@@ -15,6 +17,10 @@ type acceptedProps = {
     // setLink: string | any;
     token: any;
     setComments: any;
+    // updateUsername: string | any;
+    // updateImage: string | any;
+    // updateText: string | any;
+    // updateLink: string | any;
 }
 
 type valueTypes = {
@@ -24,6 +30,12 @@ type valueTypes = {
     link: string; 
     pFeedData: [];
     token: string;
+    setUpdateActive: boolean;
+    setUpdatePost: {}
+    // updateUsername: string;
+    // updateImage: string;
+    // updateText: string;
+    // updateLink: string;
 }
 
 export default class ProfileFeed extends React.Component<acceptedProps, valueTypes> {
@@ -36,6 +48,12 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
             link: '',
             pFeedData: [],
             token: '',
+            setUpdateActive: false,
+            setUpdatePost: {},
+            // updateUsername: "",
+            // updateImage: "",
+            // updateText: "",
+            // updateLink: "",
         }
     }
 
@@ -67,32 +85,21 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
         }).then(() => this.fetchFeeds())
     }
 
+    editUpdatePost = (feed: any) => {
+        this.setState({ setUpdatePost: feed});
+    };
 
-    //PROSPECTIVE TURNARY FOR POST DISPLAY
+    updateOn = () => {
+        this.setState({
+            setUpdateActive: true
+        })
+    }
 
-    // feedMapper = () => {
-    //     return this.state.dataTable.map((feeds: any, index) => {
-    //         const { Meta } = Card;
-    //         return(
-    //             //call mapper and use jsx to display
-    //             <Card
-    //                 key={index}
-    //                 id='postCard'
-    //                 hoverable
-    //                 cover={<img id='postImage' style={{ width: 300, height: 350 }} alt="user posted image" src={feeds.image} />}
-    //             >
-    //                 <p id='cardUname'>{feeds.userName}</p>
-    //                 <p id='cardText'>{feeds.text}</p>
-    //                 <p id='cardlink'><a target='blank'>{feeds.link}</a></p>
-    //                 <IconButton  style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Delete'>
-    //                     <DeleteOutlineTwoToneIcon onClick={() => {
-    //                         this.deleteFeed(feeds)}} /> 
-    //                 </IconButton>
-                   
-    //             </Card>
-    //         )
-    //     })
-    // }
+    updateOff = () => {
+        this.setState({
+            setUpdateActive: false
+        })
+    }
 
     componentDidMount(){
         this.fetchFeeds();
@@ -116,11 +123,20 @@ export default class ProfileFeed extends React.Component<acceptedProps, valueTyp
                         <p id='cardUname'>{feed.userName}</p>
                         <p id='cardText'>{feed.text}</p>
                         <p id='cardlink'><a target='blank'>{feed.link}</a></p>
+                        
                         <IconButton  style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Delete'>
                             <DeleteOutlineTwoToneIcon onClick={() => {
                                 this.deleteFeed(feed)}} /> 
                         </IconButton>
-                       
+                       <IconButton style={{backgroundColor: 'white', height: '30px', width: '30px', borderRadius: '50%', marginTop: '7px', outline: 'none'}} title='Edit'>
+                           <EditIcon onClick={()=> {this.editUpdatePost(feed)
+                           this.updateOn()}}/>
+                       </IconButton>
+                       <EditPost 
+                       token={this.props.token}
+                        updateOff={this.updateOff}
+                        setUpdatePost={this.state.setUpdatePost}
+                        fetchFeeds={this.fetchFeeds}/>
                     </Card>
                     </div>
                     ))}
